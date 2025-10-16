@@ -4,7 +4,7 @@ import emailjs from '@emailjs/browser';
 
 import "react-toastify/dist/ReactToastify.css";
 
-const Contact: React.FC = () => {
+const Request: React.FC = () => {
   const [formData, setFormData] = useState<any>({
     company: '',
     name: '',
@@ -13,9 +13,8 @@ const Contact: React.FC = () => {
     down_link: '',
     phone: '',
     message: '',
-    type: 'contact'
+    type: 'document'
   });
-
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -36,7 +35,7 @@ const Contact: React.FC = () => {
       name: formData.name,
       email: formData.email,
       time: formattedDate,
-      down_link: 'https://carbey.jp/HP資料請求・資料.pdf',
+      down_link: 'https://carbey.jp/ホワイトペーパー.pdf',
       phone: formData.phone,
       message: formData.message
     }
@@ -52,10 +51,10 @@ const Contact: React.FC = () => {
           email: '',
           phone: '',
           message: '',
-          type: 'contact'
+          type: 'document'
         });
 
-        toast.success("お問い合わせありがとうございます！追ってご連絡いたします。");
+        toast.success("資料請求ありがとうございます！ダウンロードが始まります。");
         },
         (error:any) => {
           console.log(error, 'error')
@@ -73,17 +72,17 @@ const Contact: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            CONTACT
+            REQUEST
           </h1>
           <p className="text-lg text-gray-600">
-            お問い合わせ
+            資料請求
           </p>
         </div>
 
         {/* Form Container */}
         <div className="bg-white rounded-2xl shadow-lg p-8 lg:p-12">
           <p className="text-gray-700 mb-8 leading-relaxed">
-            資料に関するお問い合わせ・ビジネスのご相談・採用についてお気軽にお問い合わせください。
+            資料をご希望の方は、以下のフォームに必要事項をご記入ください。
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -193,4 +192,4 @@ const Contact: React.FC = () => {
   );
 };
 
-export default Contact;
+export default Request;
