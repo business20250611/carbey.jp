@@ -81,10 +81,10 @@ const Contact: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            CONTACT
+            REQUEST
           </h1>
           <p className="text-lg text-gray-600">
-            お問い合わせ
+            資料請求
           </p>
         </div>
 
