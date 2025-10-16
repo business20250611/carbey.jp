@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { toast } from "react-toastify";
 import emailjs from '@emailjs/browser';
+
 
 import "react-toastify/dist/ReactToastify.css";
 
 const Contact: React.FC = () => {
+  const location = useLocation();
   const [formData, setFormData] = useState<any>({
     company: '',
     name: '',
@@ -13,7 +16,7 @@ const Contact: React.FC = () => {
     down_link: '',
     phone: '',
     message: '',
-    type: 'contact'
+    type: location.search.includes("type=document") ? "document" : "contact"
   });
 
 
@@ -28,6 +31,7 @@ const Contact: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    location.search.includes("type=document") ? formData.type = "document" : formData.type = "contact";
     const now = new Date();
     const pad = (n:any) => n.toString().padStart(2, '0');
     const formattedDate = `${pad(now.getMonth() + 1)}/${pad(now.getDate())}/${now.getFullYear()} ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
@@ -36,7 +40,7 @@ const Contact: React.FC = () => {
       name: formData.name,
       email: formData.email,
       time: formattedDate,
-      down_link: 'https://carbey.jp/HP資料請求・資料.pdf',
+      down_link: formData.type=='document' ? 'https://carbey.jp/ホワイトペーパー.pdf' : 'https://carbey.jp/HP資料請求・資料.pdf',
       phone: formData.phone,
       message: formData.message
     }
@@ -52,10 +56,14 @@ const Contact: React.FC = () => {
           email: '',
           phone: '',
           message: '',
-          type: 'contact'
+          type: formData.type
         });
 
-        toast.success("お問い合わせありがとうございます！追ってご連絡いたします。");
+          if (formData.type === "document") {
+            toast.success("資料請求ありがとうございます！ダウンロードが始まります。");
+          } else {
+            toast.success("お問い合わせありがとうございます！追ってご連絡いたします。");
+          }
         },
         (error:any) => {
           console.log(error, 'error')
@@ -68,7 +76,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center py-32" style={{ backgroundColor: '#eef3f9' }}>
+    <div key={location.pathname + location.search} className="min-h-screen flex items-center justify-center py-32" style={{ backgroundColor: '#eef3f9' }}>
       <div className="max-w-2xl w-full mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
