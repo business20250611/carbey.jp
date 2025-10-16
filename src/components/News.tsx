@@ -76,6 +76,12 @@ const News: React.FC = () => {
               </div>
             ))}
           </div>
+
+          <div className="text-center mt-12">
+            <button className="bg-white text-gray-900 border-2 border-gray-900 px-10 py-4 rounded-lg font-medium hover:bg-gray-900 hover:text-white transition-all duration-200 transform hover:scale-105 shadow-lg">
+              もっと見る
+            </button>
+          </div>
         </div>
       </div>
     </section>
