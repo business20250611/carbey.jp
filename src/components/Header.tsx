@@ -61,7 +61,7 @@ const Header: React.FC = () => {
             >
               <Car className="h-8 w-8" />
               {/* <img src='/logo.png' alt='Carbey Logo' className='h-10 w-auto' /> */}
-              <span>Carbey</span>
+              <span>arbey</span>
             </button>
           </div>
 
