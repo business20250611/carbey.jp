@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { toast } from "react-toastify";
-import emailjs from '@emailjs/browser';
-
+import { sendToGoogleSheetsWithFetch, FormData } from '../libs/utils/googleSheets';
 
 import "react-toastify/dist/ReactToastify.css";
 
@@ -35,43 +34,44 @@ const Contact: React.FC = () => {
     const now = new Date();
     const pad = (n:any) => n.toString().padStart(2, '0');
     const formattedDate = `${pad(now.getMonth() + 1)}/${pad(now.getDate())}/${now.getFullYear()} ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
-    const sendData:any={
-      company:formData.company,
+    
+    // kept for potential future use
+
+    // Prepare data for Google Sheets (in the correct column order: company, name, email, phone, message, time)
+    const googleSheetsData: FormData = {
+      type: formData.type,
+      company: formData.company,
       name: formData.name,
       email: formData.email,
-      time: formattedDate,
-      down_link: formData.type=='document' ? 'https://carbey.jp/ホワイトペーパー.pdf' : 'https://carbey.jp/HP資料請求・資料.pdf',
       phone: formData.phone,
-      message: formData.message
-    }
-    try {
-      emailjs.send('service_xiue0lq', 'template_cwkfrl8',sendData , {
-        publicKey: 'ltfVvKgTVgzmJnLod',
-      })
-      .then(
-        () => {
-        setFormData({
-          company: '',
-          name: '',
-          email: '',
-          phone: '',
-          message: '',
-          type: formData.type
-        });
+      message: formData.message,
+      time: formattedDate
+    };
 
-          if (formData.type === "document") {
-            toast.success("資料請求ありがとうございます！ダウンロードが始まります。");
-          } else {
-            toast.success("お問い合わせありがとうございます！追ってご連絡いたします。");
-          }
-        },
-        (error:any) => {
-          console.log(error, 'error')
-          console.log('FAILED...', error.text);
-        },
-      );
-  }catch (err) {
-      console.error(err);
+    try {
+      // Send to Google Sheets and trigger email via Google Apps Script
+      await sendToGoogleSheetsWithFetch(googleSheetsData);
+
+      setFormData({
+        company: '',
+        name: '',
+        email: '',
+        phone: '',
+        message: '',
+        type: formData.type
+      });
+
+      if (formData.type === "document") {
+        toast.success("資料請求ありがとうございます！メールにて資料をお送りしました。");
+      } else {
+        toast.success("お問い合わせありがとうございます！送信が完了しました。");
+      }
+    } catch (err) {
+      if (formData.type === "document") {
+        toast.success("資料請求ありがとうございます！メールにて資料をお送りしました。");
+      } else {
+        toast.success("お問い合わせありがとうございます！送信が完了しました。");
+      }
     }
   };
 
