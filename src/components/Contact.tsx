@@ -51,7 +51,7 @@ const Contact: React.FC = () => {
     try {
       // Send to Google Sheets and trigger email via Google Apps Script
       await sendToGoogleSheetsWithFetch(googleSheetsData);
-
+      console.clear();
       setFormData({
         company: '',
         name: '',
@@ -67,6 +67,8 @@ const Contact: React.FC = () => {
         toast.success("お問い合わせありがとうございます！送信が完了しました。");
       }
     } catch (err) {
+      console.clear();
+
       setFormData({
         company: '',
         name: '',
