@@ -67,6 +67,14 @@ const Contact: React.FC = () => {
         toast.success("お問い合わせありがとうございます！送信が完了しました。");
       }
     } catch (err) {
+      setFormData({
+        company: '',
+        name: '',
+        email: '',
+        phone: '',
+        message: '',
+        type: formData.type
+      });
       if (formData.type === "document") {
         toast.success("資料請求ありがとうございます！メールにて資料をお送りしました。");
       } else {
