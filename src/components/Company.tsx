@@ -37,7 +37,7 @@ const Company: React.FC = () => {
     },
     {
       label: '顧問',
-      value: '弁護士：ITJ 法律事務所\n税理士：一戸税理士事務所'
+      value: '弁護士：ITJ法律事務所\n税理士：一戸税理士事務所'
     },
     {
       label: '主要取引先',
@@ -168,7 +168,7 @@ const Company: React.FC = () => {
                   <h3 className="text-xl font-bold text-gray-900 mb-4">本社オフィス</h3>
                   <div className="bg-gray-100 rounded-xl overflow-hidden mb-4">
                     <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3251.8234567890123!2d139.3654321!3d35.4432109!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDI2JzM1LjYiTiAxMznCsDIxJzU1LjYiRQ!5e0!3m2!1sja!2sjp!4v1234567890123!5m2!1sja!2sjp"
+                      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=神奈川県厚木市旭町1-21-12三紫ビル3A&zoom=15"
                       width="100%"
                       height="200"
                       style={{ border: 0 }}
@@ -181,7 +181,7 @@ const Company: React.FC = () => {
                   </div>
                   <div className="text-center">
                     <a
-                      href="https://maps.google.com/?q=神奈川県厚木市旭町1-21-12"
+                      href="https://maps.google.com/?q=神奈川県厚木市旭町1-21-12三紫ビル3A"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-blue-600 hover:text-blue-800 text-sm underline"

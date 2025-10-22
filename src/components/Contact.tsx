@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { toast } from "react-toastify";
 import { sendToGoogleSheetsWithFetch, FormData } from '../libs/utils/googleSheets';
-
-import "react-toastify/dist/ReactToastify.css";
+import Modal from './Modal';
 
 const Contact: React.FC = () => {
   const location = useLocation();
@@ -17,6 +15,8 @@ const Contact: React.FC = () => {
     message: '',
     type: location.search.includes("type=document") ? "document" : "contact"
   });
+  const [showModal, setShowModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState('');
 
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -49,7 +49,6 @@ const Contact: React.FC = () => {
     };
 
     try {
-      // Send to Google Sheets and trigger email via Google Apps Script
       await sendToGoogleSheetsWithFetch(googleSheetsData);
       console.clear();
       setFormData({
@@ -62,10 +61,11 @@ const Contact: React.FC = () => {
       });
 
       if (formData.type === "document") {
-        toast.success("資料請求ありがとうございます！メールにて資料をお送りしました。");
+        setModalMessage("資料請求を送信しました。\nご入力頂いたメールアドレス宛てに資料を送信いたしました。");
       } else {
-        toast.success("お問い合わせありがとうございます！送信が完了しました。");
+        setModalMessage("お問い合わせを送信しました。");
       }
+      setShowModal(true);
     } catch (err) {
       console.clear();
 
@@ -78,23 +78,30 @@ const Contact: React.FC = () => {
         type: formData.type
       });
       if (formData.type === "document") {
-        toast.success("資料請求ありがとうございます！メールにて資料をお送りしました。");
+        setModalMessage("資料請求を送信しました。\nご入力頂いたメールアドレス宛てに資料を送信いたしました。");
       } else {
-        toast.success("お問い合わせありがとうございます！送信が完了しました。");
+        setModalMessage("お問い合わせを送信しました。");
       }
+      setShowModal(true);
     }
   };
 
   return (
-    <div key={location.pathname + location.search} className="min-h-screen flex items-center justify-center py-32" style={{ backgroundColor: '#eef3f9' }}>
-      <div className="max-w-2xl w-full mx-auto px-6 lg:px-8">
+    <>
+      <Modal
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+        message={modalMessage}
+      />
+      <div key={location.pathname + location.search} className="min-h-screen flex items-center justify-center py-32" style={{ backgroundColor: '#eef3f9' }}>
+        <div className="max-w-2xl w-full mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            CONTACT
+            {location.search.includes("type=document") ? "REQUEST" : "CONTACT"}
           </h1>
           <p className="text-lg text-gray-600">
-            お問い合わせ
+            {location.search.includes("type=document") ? "資料請求" : "お問い合わせ"}
           </p>
         </div>
 
@@ -207,7 +214,8 @@ const Contact: React.FC = () => {
           </form>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 

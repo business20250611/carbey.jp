@@ -29,11 +29,14 @@ function doPost(e) {
   
       // --- File attachment ---
       const fileName =
-        type === 'document' ? 'ホワイトペーパー.pdf' : 'HP資料請求・資料.pdf';
-      const fileIterator = DriveApp.getFilesByName(fileName);
-      const attachments = fileIterator.hasNext()
-        ? [fileIterator.next().getAs(MimeType.PDF)]
-        : [];
+        type === 'document' ? 'HP資料請求・資料.pdf' : '';
+      const attachments = [];
+      if (fileName) {
+        const fileIterator = DriveApp.getFilesByName(fileName);
+        if (fileIterator.hasNext()) {
+          attachments.push(fileIterator.next().getAs(MimeType.PDF));
+        }
+      }
   
       // --- Prepare HTML email ---
       let subject = '';
