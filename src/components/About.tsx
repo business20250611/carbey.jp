@@ -263,7 +263,7 @@ const About: React.FC = () => {
                   </td>
                   <td className="px-6 py-4 text-black">
                     <div className="space-y-1">
-                      <div>弁護士：長津法律事務所</div>
+                      <div>弁護士：ITJ法律事務所</div>
                       <div>税理士：一戸税理士事務所</div>
                     </div>
                   </td>
