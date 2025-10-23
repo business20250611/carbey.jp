@@ -81,7 +81,7 @@ const Header: React.FC = () => {
               onClick={() => handleContactNavigation('contact')}
               className="bg-white text-[#1F2F4D] px-8 py-4 rounded-lg font-semibold hover:bg-white transition-all duration-200 transform hover:scale-105 shadow-lg text-lg"
             >
-            資料請求に変更
+            お問い合わせ
             </button>
             <button
               onClick={() => handleContactNavigation('document')}
