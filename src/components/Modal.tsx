@@ -5,9 +5,10 @@ interface ModalProps {
   onClose: () => void;
   title?: string;
   message: string;
+  children: React.ReactNode;
 }
 
-const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, message }) => {
+const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, message,children }) => {
   if (!isOpen) return null;
 
   return (
@@ -28,14 +29,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, message }) => {
           <p className="text-gray-700 whitespace-pre-line">{message}</p>
         </div>
 
-        <div className="text-center">
-          <button
-            onClick={onClose}
-            className="bg-slate-700 text-white px-8 py-3 rounded-lg font-medium hover:bg-slate-800 transition-colors duration-200"
-          >
-            OK
-          </button>
-        </div>
+        
       </div>
     </div>
   );
