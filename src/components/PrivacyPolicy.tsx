@@ -67,7 +67,7 @@ export default function PrivacyPolicy() {
             </li>
           </ul>
 
-          <h3 class="text-gray-400 ">※第三者提供に該当しない場合</h3>
+          <h3 >※第三者提供に該当しない場合</h3>
           <ul>
             <li>委託による提供</li>
             <li>事業承継による提供</li>
