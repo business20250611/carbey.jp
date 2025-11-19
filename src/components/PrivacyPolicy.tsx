@@ -103,7 +103,7 @@ export default function PrivacyPolicy() {
           <h2 class="text-gray-800 font-bold">第10条（お問い合わせ窓口）</h2>
           <p>本ポリシーに関するお問い合わせは，下記の窓口までお願いします。</p>
 
-          <div className="mt-6 bg-gray-100 p-5 rounded-xl">
+          <div className="mt-6 space-y-5 bg-gray-100 p-5 rounded-xl">
             <p>住所：神奈川県厚木市旭町1-21-12 三紫ビル3A</p>
             <p>社名：カーベイ株式会社</p>
             <p>代表取締役：山岡淳宏</p>
