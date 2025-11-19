@@ -10,13 +10,13 @@ const News: React.FC = () => {
       isNew: true
     },
     {
-      date: '2024.07.15',
+      date: '2025.07.15',
       category: 'お知らせ',
       title: '公式ドメイン取得・コーポレートサイト準備開始',
       isNew: false
     },
     {
-      date: '2024.06.01',
+      date: '2025.06.01',
       category: 'お知らせ',
       title: 'カーベイ株式会社 設立のお知らせ',
       isNew: false
@@ -77,11 +77,7 @@ const News: React.FC = () => {
             ))}
           </div>
 
-          <div className="text-center mt-12">
-            <button className="bg-white text-gray-900 border-2 border-gray-900 px-10 py-4 rounded-lg font-medium hover:bg-gray-900 hover:text-white transition-all duration-200 transform hover:scale-105 shadow-lg">
-              もっと見る
-            </button>
-          </div>
+         
         </div>
       </div>
     </section>
