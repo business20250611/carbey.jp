@@ -38,7 +38,7 @@ const Services: React.FC = () => {
         <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4">
-            BUSINESS111
+            BUSINESS
           </h1>
           <p className="text-xl text-white">
             事業内容
@@ -204,7 +204,7 @@ const Services: React.FC = () => {
               className="bg-gray-100 text-gray-800 border border-gray-300 px-8 py-6 rounded-lg font-medium hover:bg-gray-200 transition-all duration-200 transform hover:scale-105 shadow-lg flex items-center justify-center space-x-2"
             >
               <Download className="h-5 w-5" />
-              <span>ホワイトペーパー333</span>
+              <span>ホワイトペーパー</span>
             </button>
           </div>
         </div>
@@ -221,14 +221,14 @@ const Services: React.FC = () => {
             className="flex-1 bg-gray-800 text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-900 transition-colors duration-200"
           >
            
-              ダウンロード1111
+              ダウンロード
            
           </button>
           <button
             onClick={() => setIsModalOpen(false)}
             className="flex-1 bg-gray-200 text-gray-800 px-6 py-3 rounded-lg font-medium hover:bg-gray-300 transition-colors duration-200"
           >
-            キャンセル2222
+            キャンセル
           </button>
         </div>
       </Modal>
