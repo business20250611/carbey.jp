@@ -28,7 +28,9 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, message,children 
         <div className="text-center mb-6">
           <p className="text-gray-700 whitespace-pre-line">{message}</p>
         </div>
-
+         <div>
+          {children}
+        </div>
         
       </div>
     </div>
