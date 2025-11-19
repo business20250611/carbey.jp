@@ -13,6 +13,7 @@ import Contact from './components/Contact';
 import Philosophy from './components/Philosophy';
 import Company from './components/Company';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import LegalNotice from './components/LegalNotice';
 const HomePage = () => (
   <>
     <Hero />
@@ -20,7 +21,7 @@ const HomePage = () => (
     <WhyWeDo />
     <News />
     <PrivacyPolicy />
-    
+    <LegalNotice/> 
     <CTA />
   </>
 );
