@@ -20,8 +20,6 @@ const HomePage = () => (
     <WhatWeDo />
     <WhyWeDo />
     <News />
-    <PrivacyPolicy />
-    <LegalNotice/> 
     <CTA />
   </>
 );
@@ -38,6 +36,9 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/philosophy" element={<Philosophy />} />
           <Route path="/company" element={<Company />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/legal-notice" element={<LegalNotice />} />
+          
         </Routes>
         <Footer />
       </div>

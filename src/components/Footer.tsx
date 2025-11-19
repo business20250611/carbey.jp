@@ -11,9 +11,8 @@ const Footer: React.FC = () => {
   };
 
   const legalLinks = [
-    'プライバシーポリシー',
-    '利用規約',
-    '特商法に基づく表記'
+    {path:'/privacy-policy', label:'プライバシーポリシー'},
+     {path:'/legal-notice', label: '特商法に基づく表記'}
   ];
 
   return (
@@ -74,12 +73,12 @@ const Footer: React.FC = () => {
             <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
               {legalLinks.map((link) => (
                 <a
-                  key={link}
-                  href="#"
+                  key={link.label}
+                  href={link.path}
                   className="hover:underline transition-all duration-200"
                   style={{ color: '#333333' }}
                 >
-                  {link}
+                  {link.label}
                 </a>
               ))}
             </div>
