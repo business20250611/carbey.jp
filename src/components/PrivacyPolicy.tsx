@@ -10,7 +10,7 @@ export default function PrivacyPolicy() {
         </h1>
 
         {/* Content */}
-        <div className="prose prose-neutral max-w-none leading-relaxed text-gray-800">
+        <div className="prose prose-neutral space-y-5 max-w-none leading-relaxed text-gray-800">
           <p>
             カーベイ株式会社（以下，「当社」といいます。）は，本ウェブサイト上で提供するサービス（以下，「本サービス」といいます。）におけるユーザーの個人情報の取扱いについて，以下のとおりプライバシーポリシー（以下，「本ポリシー」といいます。）を定めます。
           </p>
