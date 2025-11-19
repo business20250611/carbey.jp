@@ -71,7 +71,7 @@ export default function LegalNotice() {
             </li>
           </ul>
 
-          <h3 class="text-gray-400">※第三者提供に該当しない場合</h3>
+          <h3 >※第三者提供に該当しない場合</h3>
           <ul>
             <li>利用目的達成に必要な範囲で委託する場合</li>
             <li>事業承継に伴う提供</li>
