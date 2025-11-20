@@ -30,7 +30,7 @@ const Services: React.FC = () => {
       <section
         className="py-20 lg:py-32 text-white relative"
         style={{
-          backgroundImage: 'url("/img2.jpg")',
+          backgroundImage: 'url("/img2.webp")',
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}
