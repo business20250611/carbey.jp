@@ -51,7 +51,7 @@ const Company: React.FC = () => {
       <section
         className="relative py-20 lg:py-32 text-white"
         style={{
-          backgroundImage: 'url(./img7.jpg)',
+          backgroundImage: 'url(./img7.webp)',
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}
