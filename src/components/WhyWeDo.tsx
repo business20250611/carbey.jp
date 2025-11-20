@@ -18,7 +18,7 @@ const WhyWeDo: React.FC = () => {
           <div className="relative">
             <div className="relative overflow-hidden rounded-2xl shadow-xl transform hover:scale-105 transition-transform duration-500">
               <img
-                src="/img4.jpg"
+                src="/img4.webp"
                 alt="未来のテクノロジーとビジネス"
                 className="w-full h-64 lg:h-80 object-cover"
               />
