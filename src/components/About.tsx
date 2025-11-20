@@ -7,7 +7,7 @@ const About: React.FC = () => {
       <section
         className="relative py-20 lg:py-32 text-white"
         style={{
-          backgroundImage: 'url("/img5.jpg")',
+          backgroundImage: 'url("/img5.webp")',
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}
