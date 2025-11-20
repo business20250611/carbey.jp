@@ -118,6 +118,7 @@ const Philosophy: React.FC = () => {
                 description: '個人の力をつなぎ、社会全体で価値を広げていく'
               }
             ].map((value, index) => (
+              
               <div key={index} className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
                 <div className="text-center">
                   <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-gray-100 flex items-center justify-center">
