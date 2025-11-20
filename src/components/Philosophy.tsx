@@ -46,14 +46,14 @@ const Philosophy: React.FC = () => {
         <div className="absolute inset-0" style={{ backgroundColor: 'rgba(15, 23, 42, 0.7)' }}></div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <h1 className="mb-4">
-            <span className="block text-4xl lg:text-5xl font-bold mb-2" style={{ fontSize: '2.2rem' }}>
+            <span className="block text-4xl lg:text-5xl font-bold mb-4 font-bold " >
               PHILOSOPHY
             </span>
-            <span className="block text-xl font-medium" >
+            <span className="block text-xl" >
               企業理念
             </span>
           </h1>
-          <div className="w-16 h-0.5 bg-white mx-auto mt-6 mb-12 mb-8"></div>
+          <div className="w-16 h-0.5 bg-white mx-auto mb-12 mb-8 mt-6"></div>
           <p className="text-xl lg:text-2xl font-light max-w-3xl mx-auto leading-relaxed">
             革新的な考え方で中古車市場を変革する
           </p>
