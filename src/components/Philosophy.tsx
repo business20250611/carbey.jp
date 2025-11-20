@@ -63,11 +63,11 @@ const Philosophy: React.FC = () => {
       {/* Philosophy Section */}
       <section className="py-20 lg:py-32 bg-white">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4" style={{ color: '#0f172a' }}>
+          <h1 className="text-4xl lg:text-5xl font-bold mb-4" style={{ color: '#0f172a' }}>
             Philosophy
           </h2>
-          <p className="text-lg text-gray-600 mb-8">理念</p>
-          <div className="w-16 h-0.5 bg-blue-600 mx-auto mb-12"></div>
+          <p className="text-xl mb-8">理念</p>
+          <div className="w-16 h-0.5 bg-white mx-auto mt-6 mb-12"></div>
           
           <div className="space-y-6 text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
             <p>

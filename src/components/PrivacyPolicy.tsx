@@ -5,7 +5,7 @@ export default function PrivacyPolicy() {
     <div className="min-h-screen mt-5 bg-gray-50 py-16 px-4" >
       <div className="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-md mt-16"> 
         {/* Title */}
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+        <h1 className="text-3xl text-center md:text-4xl font-bold text-gray-900 mb-8">
           プライバシーポリシー
         </h1>
 
