@@ -65,7 +65,7 @@ const Philosophy: React.FC = () => {
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <h1 className="text-4xl lg:text-5xl font-bold mb-4" style={{ color: '#0f172a' }}>
             Philosophy
-          </h2>
+          </h1>
           <p className="text-xl mb-8">理念</p>
           <div className="w-16 h-0.5 bg-white mx-auto mt-6 mb-12"></div>
           
