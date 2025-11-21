@@ -49,6 +49,7 @@ const Philosophy: React.FC = () => {
             <span className="block text-4xl lg:text-5xl font-bold mb-4 font-bold " >
               PHILOSOPHY
             </span>
+            <div className="w-16 h-px bg-gray-300 mx-auto mb-8"></div>
             <span className="block text-xl" >
               企業理念
             </span>

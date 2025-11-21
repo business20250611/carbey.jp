@@ -5,6 +5,7 @@ import Modal from './Modal';
 
 const Contact: React.FC = () => {
   const location = useLocation();
+  const [agree, setAgree] = useState(false);
   const [formData, setFormData] = useState<any>({
     company: '',
     name: '',
@@ -28,8 +29,13 @@ const Contact: React.FC = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
+   
+    if (!agree) {
+      e.preventDefault();
+      alert("プライバシーポリシーに同意してください。");
+      return;
+    }
+     e.preventDefault();
     location.search.includes("type=document") ? formData.type = "document" : formData.type = "contact";
     const now = new Date();
     const pad = (n:any) => n.toString().padStart(2, '0');
@@ -192,15 +198,24 @@ const Contact: React.FC = () => {
             </div>
 
             {/* プライバシーポリシー */}
-            <div className="text-center">
+            
+            <div className="flex items-center justify-center space-x-2">
+            <input
+              type="checkbox"
+              onChange={(e) => setAgree(e.target.checked)}
+              id="agree"
+              className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+            />
+            <label htmlFor="agree" className="text-sm text-gray-700">
               <a
-                href="#"
-                className="text-blue-600 hover:text-blue-800 underline text-sm"
+                href="/privacy-policy"
+                className="text-blue-600 hover:text-blue-800 underline"
               >
                 プライバシーポリシー
               </a>
-              <span className="text-gray-600 text-sm ml-1">に同意する</span>
-            </div>
+              に同意する
+            </label>
+          </div>
 
             {/* 送信ボタン */}
             <div className="text-center pt-4">

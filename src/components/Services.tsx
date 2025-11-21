@@ -16,7 +16,7 @@ const Services: React.FC = () => {
     link.download = "ホワイトペーパー.pdf";
     link.click();
     console.log('ホワイトペーパーをダウンロード中...');
-    setIsModalOpen(true);
+    setIsModalOpen(false);
   };
 
   const handleContactClick = () => {
