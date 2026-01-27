@@ -68,15 +68,6 @@ const WhatWeDo: React.FC = () => {
         />
       )}
     </div>
-
-
-        <div className="relative w-[360px] aspect-video rounded-xl overflow-hidden">
-         <video width="640" height="360" controls>
-            <source src="movie.mp4" type="video/mp4" />
-            <source src="movie.webm" type="video/webm" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
         <div className="text-center mb-16">
           <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
             WHAT WE DO
