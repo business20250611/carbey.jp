@@ -20,6 +20,36 @@ const WhatWeDo: React.FC = () => {
     <section id="what-we-do" className="py-20 lg:py-32 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
+        <div class="relative w-[360px] aspect-video rounded-xl overflow-hidden">
+  
+  <video
+    src="video.mp4"
+    muted
+    loop
+    playsinline
+    class="w-full h-full object-cover"
+  ></video>
+
+  
+  <div class="absolute inset-0 bg-black/20"></div>
+
+ 
+  <img
+    src="play-button.png"
+    class="absolute top-3 left-3 w-10 h-10"
+    alt="play"
+  />
+
+  
+  <div class="absolute right-4 top-1/2 -translate-y-1/2">
+    <div class="bg-white/90 border-2 border-red-500 rounded-xl px-4 py-3 shadow-md">
+      <p class="text-sm font-bold text-gray-900 leading-snug">
+        中古車販売の<br />
+        新しいカタチ
+      </p>
+    </div>
+  </div>
+</div>
         <div className="text-center mb-16">
           <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
             WHAT WE DO
