@@ -5,7 +5,7 @@ import Modal from './Modal';
 
 const WhatWeDo: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const [play, setPlay] = useState(false);
   const handleDownload = () => {
     // ここに実際のダウンロード処理を実装
     const link = document.createElement("a");
@@ -20,14 +20,62 @@ const WhatWeDo: React.FC = () => {
     <section id="what-we-do" className="py-20 lg:py-32 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
+        <div className="w-[360px] aspect-video">
+      {!play ? (
+        <div
+          onClick={() => setPlay(true)}
+          className="relative w-full h-full rounded-xl overflow-hidden cursor-pointer group"
+        >
+          {/* Thumbnail */}
+          <img
+            src="https://img.youtube.com/vi/QOnYdgb9kp4/maxresdefault.jpg"
+            alt="YouTube preview"
+            className="w-full h-full object-cover"
+          />
+
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/30" />
+
+          {/* Play button */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition">
+              <svg
+                className="w-6 h-6 text-white ml-1"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
+          </div>
+
+          {/* Text badge */}
+          <div className="absolute right-4 top-1/2 -translate-y-1/2">
+            <div className="bg-white/90 border-2 border-red-500 rounded-xl px-4 py-3 shadow-md">
+              <p className="text-sm font-bold text-gray-900 leading-snug">
+                中古車販売の<br />新しいカタチ
+              </p>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <iframe
+          className="w-full h-full rounded-xl"
+          src="https://www.youtube.com/embed/QOnYdgb9kp4?autoplay=1"
+          title="YouTube video"
+          allow="autoplay; encrypted-media"
+          allowFullScreen
+        />
+      )}
+    </div>
+
+        
         <div class="relative w-[360px] aspect-video rounded-xl overflow-hidden">
-          <video
-            src="https://www.youtube.com/watch?v=QOnYdgb9kp4"
-            muted
-            loop
-            playsinline
-            class="w-full h-full object-cover"
-          ></video>
+         <video width="640" height="360" controls>
+            <source src="movie.mp4" type="video/mp4">
+            <source src="movie.webm" type="video/webm">
+            Your browser does not support the video tag.
+          </video>
         </div>
         <div className="text-center mb-16">
           <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
