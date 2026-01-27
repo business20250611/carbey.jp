@@ -52,7 +52,7 @@ const WhatWeDo: React.FC = () => {
       ) : (
         <iframe
           className="w-full h-full rounded-xl"
-          src="https://www.youtube.com/embed/QOnYdgb9kp4?autoplay=1"
+          src="blob:https://www.youtube.com/667be2d9-1997-4819-b9bb-4ec5bb68a4d8"
           title="YouTube video"
           allow="autoplay; encrypted-media"
           allowFullScreen
