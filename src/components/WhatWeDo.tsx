@@ -22,13 +22,15 @@ const WhatWeDo: React.FC = () => {
         {/* Header */}
         <div className="w-[360px] aspect-video">
      
-        <video
-          className="w-full h-full rounded-xl"
-          src="blob:https://www.youtube.com/667be2d9-1997-4819-b9bb-4ec5bb68a4d8"
-          title="YouTube video"
-          allow="autoplay; encrypted-media"
-          allowFullScreen>
-        </video>
+     <iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/QOnYdgb9kp4"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen>
+</iframe>
      
     </div>
         <div className="text-center mb-16">
