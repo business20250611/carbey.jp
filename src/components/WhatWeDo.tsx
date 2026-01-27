@@ -48,15 +48,6 @@ const WhatWeDo: React.FC = () => {
               </svg>
             </div>
           </div>
-
-          {/* Text badge */}
-          <div className="absolute right-4 top-1/2 -translate-y-1/2">
-            <div className="bg-white/90 border-2 border-red-500 rounded-xl px-4 py-3 shadow-md">
-              <p className="text-sm font-bold text-gray-900 leading-snug">
-                中古車販売の<br />新しいカタチ
-              </p>
-            </div>
-          </div>
         </div>
       ) : (
         <iframe
