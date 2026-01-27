@@ -20,17 +20,17 @@ const WhatWeDo: React.FC = () => {
     <section id="what-we-do" className="py-20 lg:py-32 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
-        <div className="w-[360px] aspect-video">
+        <div className="flex justify-center mb-16">
      
      <iframe
-  width="560"
-  height="315"
-  src="https://www.youtube.com/embed/QOnYdgb9kp4"
-  title="YouTube video player"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen>
-</iframe>
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/QOnYdgb9kp4"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
      
     </div>
         <div className="text-center mb-16">
