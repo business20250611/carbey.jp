@@ -69,11 +69,11 @@ const WhatWeDo: React.FC = () => {
       )}
     </div>
 
-        
-        <div class="relative w-[360px] aspect-video rounded-xl overflow-hidden">
+
+        <div className="relative w-[360px] aspect-video rounded-xl overflow-hidden">
          <video width="640" height="360" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.webm" type="video/webm">
+            <source src="movie.mp4" type="video/mp4" />
+            <source src="movie.webm" type="video/webm" />
             Your browser does not support the video tag.
           </video>
         </div>
@@ -114,7 +114,7 @@ const WhatWeDo: React.FC = () => {
             <div className="w-80 h-48 border-2 border-gray-400 rounded-lg flex items-center justify-center bg-white">
               <div className="text-center w-[70%]">
                 {/* <BarChart3 className="w-16 h-16 text-gray-600 mx-auto mb-4" /> */}
-                <img src='./image-1.png'></img>
+                <img src='./image-1.png' alt="Chart" />
               </div>
             </div>
           </div>
