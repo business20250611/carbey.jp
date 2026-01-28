@@ -20,7 +20,7 @@ const WhatWeDo: React.FC = () => {
     <section id="what-we-do" className="py-20 lg:py-32 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
-        <div className="flex justify-center mb-16">
+        <div className="flex justify-center mb-16" style={{marginBottom:"8rem"}}>
      
      <iframe
         width="560"
