@@ -32,12 +32,12 @@ function ScrollToHashElement() {
     if (location.hash) {
       const element = document.querySelector(location.hash);
       if (element) {
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
+        element.scrollIntoView({ behavior: 'instant' });
       }
+    } else {
+      window.scrollTo(0, 0);
     }
-  }, [location]);
+  }, [location.pathname, location.hash]);
 
   return null;
 }
