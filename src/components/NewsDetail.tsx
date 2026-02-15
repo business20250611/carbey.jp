@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Calendar, ArrowLeft } from 'lucide-react';
 
@@ -55,6 +55,10 @@ const newsArticles: Record<string, NewsArticle> = {
 const NewsDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const article = id ? newsArticles[id] : null;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if (!article) {
     return (
