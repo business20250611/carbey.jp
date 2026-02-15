@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Settings, History, Rocket } from 'lucide-react';
+import { Settings, History, Rocket, FileText } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import PublishButton from './PublishButton';
 
 interface DeploymentLog {
@@ -60,6 +61,23 @@ const Admin: React.FC = () => {
           </div>
 
           <div className="p-8">
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-8 mb-8 border-2 border-green-200">
+              <div className="flex items-center gap-3 mb-4">
+                <FileText className="w-8 h-8 text-green-600" />
+                <h2 className="text-2xl font-bold text-gray-800">ニュース記事管理</h2>
+              </div>
+              <p className="text-gray-600 mb-6 text-lg">
+                記事を作成・編集して下書き保存し、準備ができたら公開できます。
+              </p>
+              <Link
+                to="/admin/news"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold transition-colors shadow-lg"
+              >
+                <FileText className="w-5 h-5" />
+                記事を管理
+              </Link>
+            </div>
+
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-8 mb-8 border-2 border-blue-200">
               <div className="flex items-center gap-3 mb-4">
                 <Rocket className="w-8 h-8 text-blue-600" />

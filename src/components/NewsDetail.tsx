@@ -1,64 +1,49 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Calendar, ArrowLeft } from 'lucide-react';
-
-interface NewsArticle {
-  id: string;
-  date: string;
-  category: string;
-  title: string;
-  content: string;
-}
-
-const newsArticles: Record<string, NewsArticle> = {
-  'support-enhancement-2026': {
-    id: 'support-enhancement-2026',
-    date: '2026.01.20',
-    category: 'お知らせ',
-    title: 'サポート体制強化のお知らせ',
-    content: `平素よりカーベイをご利用いただき、誠にありがとうございます。
-
-この度、加盟者様の運用支援体制をさらに強化するため、
-サポート体制の拡充を実施いたしました。
-
-これにより、これまで以上にスムーズな運用支援および
-迅速な対応が可能となります。
-
-カーベイでは、未経験の方でも安心して事業を開始・継続できるよう、
-今後もサービス品質の向上に努めてまいります。
-
-引き続き、カーベイをよろしくお願いいたします。`
-  },
-  'service-launch': {
-    id: 'service-launch',
-    date: '2025.09.01',
-    category: 'プレスリリース',
-    title: 'サービス提供開始のお知らせ',
-    content: 'カーベイのサービス提供を開始いたしました。'
-  },
-  'domain-acquisition': {
-    id: 'domain-acquisition',
-    date: '2025.07.15',
-    category: 'お知らせ',
-    title: '公式ドメイン取得・コーポレートサイト準備開始',
-    content: '公式ドメインを取得し、コーポレートサイトの準備を開始いたしました。'
-  },
-  'company-establishment': {
-    id: 'company-establishment',
-    date: '2025.06.01',
-    category: 'お知らせ',
-    title: 'カーベイ株式会社 設立のお知らせ',
-    content: 'カーベイ株式会社を設立いたしました。'
-  }
-};
+import { supabase, NewsArticle } from '../libs/supabase';
 
 const NewsDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const article = id ? newsArticles[id] : null;
+  const [article, setArticle] = useState<NewsArticle | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+    if (id) {
+      fetchArticle(id);
+    }
+  }, [id]);
+
+  const fetchArticle = async (articleId: string) => {
+    try {
+      const { data, error } = await supabase
+        .from('news_articles')
+        .select('*')
+        .eq('id', articleId)
+        .eq('status', 'published')
+        .maybeSingle();
+
+      if (error) throw error;
+      setArticle(data);
+    } catch (error) {
+      console.error('Error fetching article:', error);
+      setArticle(null);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-gray-50 py-20">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-gray-600"></div>
+          <p className="mt-4 text-gray-600">読み込み中...</p>
+        </div>
+      </div>
+    );
+  }
 
   if (!article) {
     return (
@@ -107,11 +92,15 @@ const NewsDetail: React.FC = () => {
             </div>
 
             <div className="prose prose-lg max-w-none">
-              {article.content.split('\n').map((line, index) => (
-                <p key={index} className="text-gray-700 leading-relaxed mb-4">
-                  {line}
-                </p>
-              ))}
+              {article.content ? (
+                article.content.split('\n').map((line, index) => (
+                  <p key={index} className="text-gray-700 leading-relaxed mb-4">
+                    {line}
+                  </p>
+                ))
+              ) : (
+                <p className="text-gray-500">記事の内容がありません。</p>
+              )}
             </div>
           </div>
         </article>

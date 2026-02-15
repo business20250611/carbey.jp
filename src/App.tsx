@@ -15,6 +15,8 @@ import Company from './components/Company';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import LegalNotice from './components/LegalNotice';
 import NewsDetail from './components/NewsDetail';
+import Admin from './components/Admin';
+import NewsAdmin from './components/NewsAdmin';
 const HomePage = () => (
   <>
     <Hero />
@@ -51,7 +53,8 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<About />} />
-          <Route path="/admin" element={<About />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/admin/news" element={<NewsAdmin />} />
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/philosophy" element={<Philosophy />} />
@@ -59,7 +62,6 @@ function App() {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/legal-notice" element={<LegalNotice />} />
           <Route path="/news/:id" element={<NewsDetail />} />
-
         </Routes>
         <Footer />
       </div>
