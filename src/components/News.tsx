@@ -1,21 +1,32 @@
 import React from 'react';
-import { Calendar } from 'lucide-react';
+import { Calendar, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const News: React.FC = () => {
   const newsItems = [
     {
-      date: '2025.09.01',
-      category: 'プレスリリース',
-      title: 'サービス提供開始のお知らせ',
+      id: 'support-enhancement-2026',
+      date: '2026.01.20',
+      category: 'お知らせ',
+      title: 'サポート体制強化のお知らせ',
       isNew: true
     },
     {
+      id: 'service-launch',
+      date: '2025.09.01',
+      category: 'プレスリリース',
+      title: 'サービス提供開始のお知らせ',
+      isNew: false
+    },
+    {
+      id: 'domain-acquisition',
       date: '2025.07.15',
       category: 'お知らせ',
       title: '公式ドメイン取得・コーポレートサイト準備開始',
       isNew: false
     },
     {
+      id: 'company-establishment',
       date: '2025.06.01',
       category: 'お知らせ',
       title: 'カーベイ株式会社 設立のお知らせ',
@@ -24,7 +35,7 @@ const News: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 lg:py-32 bg-gray-50">
+    <section id="news" className="py-20 lg:py-32 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
@@ -38,9 +49,10 @@ const News: React.FC = () => {
         <div className="max-w-4xl mx-auto">
           <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
             {newsItems.map((item, index) => (
-              <div
+              <Link
                 key={index}
-                className="border-b border-gray-100 last:border-b-0 hover:bg-gray-50 transition-colors duration-200"
+                to={`/news/${item.id}`}
+                className="block border-b border-gray-100 last:border-b-0 hover:bg-gray-50 transition-colors duration-200"
               >
                 <div className="p-6 lg:p-8">
                   <div className="flex items-start space-x-4">
@@ -51,8 +63,8 @@ const News: React.FC = () => {
                     <div className="flex-1">
                       <div className="flex items-center space-x-3 mb-3">
                         <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                          item.category === 'プレスリリース' 
-                            ? 'bg-gray-100 text-gray-800' 
+                          item.category === 'プレスリリース'
+                            ? 'bg-gray-100 text-gray-800'
                             : item.category === '事業'
                             ? 'bg-gray-100 text-gray-800'
                             : 'bg-gray-100 text-gray-700'
@@ -65,19 +77,20 @@ const News: React.FC = () => {
                           </span>
                         )}
                       </div>
-                      <h3 className="text-lg lg:text-xl font-medium text-gray-900 hover:text-gray-700 transition-colors duration-200 cursor-pointer">
+                      <h3 className="text-lg lg:text-xl font-medium text-gray-900 group-hover:text-gray-700 transition-colors duration-200">
                         {item.title}
                       </h3>
                     </div>
                     <div className="text-gray-400 hover:text-gray-600 transition-colors duration-200">
+                      <ChevronRight className="h-5 w-5" />
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
-         
+
         </div>
       </div>
     </section>

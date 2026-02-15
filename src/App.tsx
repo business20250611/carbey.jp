@@ -14,6 +14,7 @@ import Philosophy from './components/Philosophy';
 import Company from './components/Company';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import LegalNotice from './components/LegalNotice';
+import NewsDetail from './components/NewsDetail';
 const HomePage = () => (
   <>
     <Hero />
@@ -38,7 +39,8 @@ function App() {
           <Route path="/company" element={<Company />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/legal-notice" element={<LegalNotice />} />
-          
+          <Route path="/news/:id" element={<NewsDetail />} />
+
         </Routes>
         <Footer />
       </div>
