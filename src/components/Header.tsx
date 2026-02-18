@@ -85,16 +85,13 @@ const Header: React.FC = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => handleNavigation(item.path)}
-                className={`text-white hover:text-gray-200 transition-colors duration-200 font-medium ${location.pathname === item.path ? 'border-b-2 border-white pb-1' : ''
-                  }`}
-              >
-                {item.name}
-              </button>
-            ))}
+            <button
+              onClick={() => handleNavigation(navItems[0].path)}
+              className={`text-white hover:text-gray-200 transition-colors duration-200 font-medium ${location.pathname === navItems[0].path ? 'border-b-2 border-white pb-1' : ''
+                }`}
+            >
+              {navItems[0].name}
+            </button>
 
             {/* Services Dropdown */}
             <div className="relative" ref={dropdownRef}>
@@ -112,23 +109,38 @@ const Header: React.FC = () => {
 
               {isServicesDropdownOpen && (
                 <div className="absolute top-full mt-2 bg-white rounded-lg shadow-xl py-2 min-w-[160px] z-50">
-                  {servicesItems.map((item) => (
-                    <button
-                      key={item.name}
-                      onClick={() => {
-                        handleNavigation(item.path);
-                        setIsServicesDropdownOpen(false);
-                      }}
-                      className={`w-full text-left px-6 py-3 text-gray-800 hover:bg-blue-50 transition-colors duration-200 font-medium ${
-                        location.pathname === item.path ? 'bg-blue-100 text-blue-600' : ''
-                      }`}
-                    >
-                      {item.name}
-                    </button>
+                  {servicesItems.map((item, index) => (
+                    <React.Fragment key={item.name}>
+                      <button
+                        onClick={() => {
+                          handleNavigation(item.path);
+                          setIsServicesDropdownOpen(false);
+                        }}
+                        className={`w-full text-left px-6 py-3 text-gray-800 hover:bg-blue-50 transition-colors duration-200 font-medium ${
+                          location.pathname === item.path ? 'bg-blue-100 text-blue-600' : ''
+                        }`}
+                      >
+                        {item.name}
+                      </button>
+                      {index < servicesItems.length - 1 && (
+                        <div className="border-t border-gray-200 mx-2"></div>
+                      )}
+                    </React.Fragment>
                   ))}
                 </div>
               )}
             </div>
+
+            {navItems.slice(1).map((item) => (
+              <button
+                key={item.name}
+                onClick={() => handleNavigation(item.path)}
+                className={`text-white hover:text-gray-200 transition-colors duration-200 font-medium ${location.pathname === item.path ? 'border-b-2 border-white pb-1' : ''
+                  }`}
+              >
+                {item.name}
+              </button>
+            ))}
 
             <button
               onClick={() => handleContactNavigation('contact')}
