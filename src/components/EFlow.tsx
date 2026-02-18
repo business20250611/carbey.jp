@@ -9,12 +9,12 @@ const EFlow: React.FC = () => {
     {
       icon: <ShoppingCart className="w-16 h-16 text-white" />,
       title: '商品選定',
-      description: '国内サイトで魅力的な商品を選定。本部のノウハウをもとに、誰でも簡単に商品選定ができます。'
+      description: '国内サイトで魅力的な商品を選定。\n本部のノウハウをもとに、誰でも簡単に商品選定ができます。'
     },
     {
       icon: <Globe className="w-16 h-16 text-white" />,
       title: '海外サイト出品',
-      description: '本部が開発した専用ツールを使用し、海外ECサイトへ効率的に商品を出品します。'
+      description: '独自の自動ツールを使用し、海外ECサイトへ効率的に商品を出品します。'
     },
     {
       icon: <Package className="w-16 h-16 text-white" />,
@@ -24,7 +24,7 @@ const EFlow: React.FC = () => {
     {
       icon: <TrendingUp className="w-16 h-16 text-white" />,
       title: '売上の入金',
-      description: '売上を受け取り、継続的にビジネスサイクルを回していきます。キャッシュフローが速く、スピーディーに資金回転できる点が強みです。'
+      description: 'キャッシュフローが速く、継続的にビジネスサイクルを回していくことができます。'
     }
   ];
 
@@ -149,7 +149,7 @@ const EFlow: React.FC = () => {
                   <h3 className="text-xl font-bold text-gray-900 mb-3">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed text-sm">
+                  <p className="text-gray-600 leading-relaxed text-sm whitespace-pre-line">
                     {feature.description}
                   </p>
                 </div>
