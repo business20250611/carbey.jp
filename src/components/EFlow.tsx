@@ -65,21 +65,6 @@ const EFlow: React.FC = () => {
         </div>
       </section>
 
-      {/* Video Section - Coming Soon */}
-      <section className="relative w-full aspect-video bg-gradient-to-br from-slate-800 via-slate-700 to-gray-800">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center">
-            <div className="w-24 h-24 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6 border border-white/20">
-              <svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z"/>
-              </svg>
-            </div>
-            <h2 className="text-3xl font-bold text-white mb-2">動画準備中</h2>
-            <p className="text-gray-300">Coming Soon</p>
-          </div>
-        </div>
-      </section>
-
       {/* Hero Section */}
       <section className="relative py-20 lg:py-28 overflow-hidden">
         <div
@@ -103,6 +88,21 @@ const EFlow: React.FC = () => {
             越境ECビジネスをトータルでサポートし、<br />
             グローバル市場での成功を実現します。
           </p>
+        </div>
+      </section>
+
+      {/* Video Section - Coming Soon */}
+      <section className="relative w-full aspect-video bg-gradient-to-br from-slate-800 via-slate-700 to-gray-800">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center">
+            <div className="w-24 h-24 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6 border border-white/20">
+              <svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+            <h2 className="text-3xl font-bold text-white mb-2">動画準備中</h2>
+            <p className="text-gray-300">Coming Soon</p>
+          </div>
         </div>
       </section>
 
