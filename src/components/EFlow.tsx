@@ -160,7 +160,7 @@ const EFlow: React.FC = () => {
       </section>
 
       {/* Business Model Section - Grid Cards */}
-      <section className="py-20 lg:py-24 bg-white">
+      <section className="py-20 lg:py-24 bg-gradient-to-b from-blue-50 to-cyan-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
@@ -179,7 +179,12 @@ const EFlow: React.FC = () => {
               >
                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-300"></div>
                 <div className="relative bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 h-full">
-                  <div className="flex flex-col items-center text-center mb-4">
+                  <div className="flex flex-col items-center text-center mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      {index === 0 && <TrendingUp className="w-9 h-9 text-white" />}
+                      {index === 1 && <Package className="w-9 h-9 text-white" />}
+                      {index === 2 && <Globe className="w-9 h-9 text-white" />}
+                    </div>
                     <h3 className="text-2xl font-bold text-gray-900">
                       {item.title}
                     </h3>
