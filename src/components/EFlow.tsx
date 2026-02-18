@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Package, TrendingUp, Globe, ShoppingCart } from 'lucide-react';
+import { Package, TrendingUp, Globe, ShoppingCart, Zap, Shield, RotateCw } from 'lucide-react';
 
 const EFlow: React.FC = () => {
   const navigate = useNavigate();
@@ -181,9 +181,9 @@ const EFlow: React.FC = () => {
                 <div className="relative bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 h-full">
                   <div className="flex flex-col items-center text-center mb-6">
                     <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                      {index === 0 && <TrendingUp className="w-9 h-9 text-white" />}
-                      {index === 1 && <Package className="w-9 h-9 text-white" />}
-                      {index === 2 && <Globe className="w-9 h-9 text-white" />}
+                      {index === 0 && <Zap className="w-9 h-9 text-white" />}
+                      {index === 1 && <Shield className="w-9 h-9 text-white" />}
+                      {index === 2 && <RotateCw className="w-9 h-9 text-white" />}
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900">
                       {item.title}
