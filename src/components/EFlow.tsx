@@ -127,7 +127,7 @@ const EFlow: React.FC = () => {
             <div className="relative max-w-6xl mx-auto">
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-100 to-cyan-100 rounded-2xl blur-2xl opacity-30"></div>
               <img
-                src="/E-Flowスキーム図.jpg"
+                src="/SMmiO0Qt.jpg"
                 alt="E-Flowのスキーム図"
                 className="relative w-full rounded-xl shadow-2xl"
               />
