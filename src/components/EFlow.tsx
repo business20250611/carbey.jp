@@ -58,85 +58,109 @@ const EFlow: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section
-        className="py-20 lg:py-32 text-white relative"
-        style={{
-          backgroundImage: 'url("/img4.webp")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }}
-      >
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <div className="mb-8">
-            <img
-              src="/eflow_transparent.png"
-              alt="E-Flow Logo"
-              className="h-24 lg:h-32 mx-auto"
-            />
-          </div>
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4">
-            E-FLOW
-          </h1>
-          <p className="text-xl text-white">
-            グローバル越境ECプラットフォーム
-          </p>
+      {/* Hero Section with Gradient Overlay */}
+      <section className="relative py-32 lg:py-40 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: 'url("/img4.webp")',
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/85 via-slate-800/80 to-gray-900/85"></div>
         </div>
-      </section>
 
-      {/* Introduction Section */}
-      <section className="py-16 lg:py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
-              日本の優れた商品を世界へ
-            </h2>
-            <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
-              E-Flowは越境ECビジネスをトータルでサポートし、グローバル市場での成功を実現します。<br />
-              商品選定から出品、発送まで、すべてをワンストップで提供するプラットフォームです。
-            </p>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+            <div className="lg:w-1/2 text-white">
+              <img
+                src="/eflow_transparent.png"
+                alt="E-Flow Logo"
+                className="h-20 lg:h-24 mb-8"
+              />
+              <h1 className="text-5xl lg:text-6xl font-bold mb-6">
+                E-FLOW
+              </h1>
+              <p className="text-2xl mb-4 text-blue-100">
+                グローバル越境ECプラットフォーム
+              </p>
+              <p className="text-lg text-gray-200 leading-relaxed">
+                日本の優れた商品を世界へ。<br />
+                越境ECビジネスをトータルでサポートし、<br />
+                グローバル市場での成功を実現します。
+              </p>
+            </div>
+
+            <div className="lg:w-1/2">
+              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
+                <h3 className="text-white text-xl font-bold mb-6">ワンストップソリューション</h3>
+                <ul className="space-y-4 text-white">
+                  <li className="flex items-start gap-3">
+                    <ShoppingCart className="w-6 h-6 text-blue-300 flex-shrink-0 mt-1" />
+                    <span>商品選定から海外出品まで</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Package className="w-6 h-6 text-blue-300 flex-shrink-0 mt-1" />
+                    <span>発送代行で手間いらず</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Globe className="w-6 h-6 text-blue-300 flex-shrink-0 mt-1" />
+                    <span>グローバル市場へのアクセス</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <TrendingUp className="w-6 h-6 text-blue-300 flex-shrink-0 mt-1" />
+                    <span>継続的な売上サイクル</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Business Flow Section */}
-      <section className="py-16 lg:py-20 bg-gray-100">
+      <section className="py-20 lg:py-24 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               E-Flowの流れ
             </h2>
-            <p className="text-xl font-semibold text-red-600 mb-8">
+            <p className="text-xl text-blue-600 font-medium">
               シンプルで効率的な4つのステップ
             </p>
           </div>
 
-          {/* Scheme Image */}
-          <div className="mb-16">
-            <img
-              src="/E-Flowスキーム図.jpg"
-              alt="E-Flowのスキーム図"
-              className="w-full max-w-5xl mx-auto rounded-lg shadow-lg"
-            />
+          {/* Scheme Image with enhanced styling */}
+          <div className="mb-20">
+            <div className="relative max-w-6xl mx-auto">
+              <div className="absolute -inset-4 bg-gradient-to-r from-blue-100 to-cyan-100 rounded-2xl blur-2xl opacity-30"></div>
+              <img
+                src="/E-Flowスキーム図.jpg"
+                alt="E-Flowのスキーム図"
+                className="relative w-full rounded-xl shadow-2xl"
+              />
+            </div>
           </div>
 
-          {/* Feature Cards with diamond icons */}
+          {/* Feature Cards - Modern card style */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
-              <div key={index} className="space-y-6">
-                <div className="flex justify-center">
-                  <div className="w-48 h-48 bg-slate-700 border-2 border-slate-600 transform rotate-45 flex items-center justify-center shadow-lg">
-                    <div className="transform -rotate-45 flex flex-col items-center justify-center">
+              <div
+                key={index}
+                className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-blue-200 group"
+              >
+                <div className="flex justify-center mb-6">
+                  <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-12 h-12 text-white">
                       {feature.icon}
-                      <div className="w-8 h-1 bg-gray-300 rounded mt-2"></div>
                     </div>
                   </div>
                 </div>
                 <div className="text-center">
+                  <div className="w-12 h-1 bg-blue-500 mx-auto mb-4 rounded-full"></div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-700 leading-relaxed">
+                  <p className="text-gray-600 leading-relaxed text-sm">
                     {feature.description}
                   </p>
                 </div>
@@ -146,99 +170,84 @@ const EFlow: React.FC = () => {
         </div>
       </section>
 
-      {/* Business Model Section - Alternating Layout */}
-      <section className="py-16 lg:py-20 bg-white">
+      {/* Business Model Section - Grid Cards */}
+      <section className="py-20 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               ビジネスモデル
             </h2>
-            <p className="text-xl font-semibold text-red-600">
+            <p className="text-xl text-blue-600 font-medium max-w-3xl mx-auto">
               革新的なテクノロジーと実績あるノウハウで越境ECビジネスをサポート
             </p>
           </div>
 
-          <div className="space-y-16 mt-16">
+          <div className="grid md:grid-cols-2 gap-8">
             {businessModel.map((item, index) => (
-              <div key={index} className="grid lg:grid-cols-2 gap-12 items-center">
-                {index % 2 === 0 ? (
-                  <>
-                    <div className="space-y-6">
-                      <h3 className="text-2xl lg:text-3xl font-bold text-gray-900">
-                        {item.title}
-                      </h3>
-                      <p className="text-lg text-gray-700 leading-relaxed">
-                        {item.description}
-                      </p>
+              <div
+                key={index}
+                className="relative group"
+              >
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-300"></div>
+                <div className="relative bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 h-full">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <span className="text-white text-xl font-bold">{index + 1}</span>
                     </div>
-                    <div className="flex justify-center">
-                      <div className={`w-48 h-48 ${
-                        index === 0 ? 'bg-slate-700 border-slate-600' :
-                        index === 2 ? 'bg-gray-700 border-gray-600' : 'bg-gray-800 border-gray-700'
-                      } border-2 transform rotate-45 flex items-center justify-center shadow-lg`}>
-                        <div className="transform -rotate-45 flex flex-col items-center justify-center">
-                          <Globe className="w-16 h-16 text-white" />
-                          <div className="w-8 h-1 bg-gray-300 rounded mt-2"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <div className="flex justify-center lg:order-1">
-                      <div className={`w-48 h-48 ${
-                        index === 1 ? 'bg-gray-600 border-gray-500' : 'bg-slate-600 border-slate-500'
-                      } border-2 transform rotate-45 flex items-center justify-center shadow-lg`}>
-                        <div className="transform -rotate-45 flex flex-col items-center justify-center">
-                          <Package className="w-16 h-16 text-white" />
-                          <div className="w-8 h-1 bg-gray-300 rounded mt-2"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="space-y-6 lg:order-2">
-                      <h3 className="text-2xl lg:text-3xl font-bold text-gray-900">
-                        {item.title}
-                      </h3>
-                      <p className="text-lg text-gray-700 leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
-                  </>
-                )}
+                    <h3 className="text-2xl font-bold text-gray-900 pt-2">
+                      {item.title}
+                    </h3>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed pl-16">
+                    {item.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="py-16 lg:py-20 bg-gray-100">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
+      {/* Benefits Section - Dark Theme */}
+      <section className="py-20 lg:py-24 bg-gradient-to-br from-slate-800 via-slate-700 to-gray-800 relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-white/5"></div>
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
               E-Flowの強み
             </h2>
-            <p className="text-xl font-semibold text-red-600">
+            <p className="text-xl text-blue-300 font-medium">
               なぜE-Flowが選ばれるのか
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">豊富な実績</h3>
-              <p className="text-gray-700 leading-relaxed">
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white/5 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/10 transition-all duration-300">
+              <div className="w-14 h-14 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-xl flex items-center justify-center mb-6">
+                <TrendingUp className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-4">豊富な実績</h3>
+              <p className="text-gray-300 leading-relaxed">
                 多数の企業様の越境EC進出をサポートし、確かな実績を積み重ねてきました。
               </p>
             </div>
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">専門知識</h3>
-              <p className="text-gray-700 leading-relaxed">
+
+            <div className="bg-white/5 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/10 transition-all duration-300">
+              <div className="w-14 h-14 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-xl flex items-center justify-center mb-6">
+                <Globe className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-4">専門知識</h3>
+              <p className="text-gray-300 leading-relaxed">
                 グローバル市場の動向や各国の商習慣を熟知した専門チームがサポートします。
               </p>
             </div>
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">最新テクノロジー</h3>
-              <p className="text-gray-700 leading-relaxed">
+
+            <div className="bg-white/5 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/10 transition-all duration-300">
+              <div className="w-14 h-14 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-xl flex items-center justify-center mb-6">
+                <Package className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-4">最新テクノロジー</h3>
+              <p className="text-gray-300 leading-relaxed">
                 AIやデータ分析を活用した最先端のツールで、効率的なビジネス展開を実現します。
               </p>
             </div>
@@ -247,26 +256,34 @@ const EFlow: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 lg:py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <p className="text-xl text-gray-700 mb-12">
-            E-Flowで越境ECビジネスを始めませんか？
-          </p>
+      <section className="py-20 lg:py-24 bg-gradient-to-b from-white to-gray-50">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8">
+          <div className="bg-gradient-to-br from-blue-600 to-cyan-600 rounded-3xl p-12 lg:p-16 text-center relative overflow-hidden shadow-2xl">
+            <div className="absolute inset-0 bg-grid-white/10"></div>
+            <div className="relative">
+              <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
+                グローバル市場への第一歩を
+              </h2>
+              <p className="text-xl text-blue-50 mb-10 max-w-2xl mx-auto">
+                E-Flowで越境ECビジネスを始めませんか？
+              </p>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
-            <button
-              onClick={handleContactClick}
-              className="bg-slate-700 text-white px-8 py-6 rounded-lg font-medium hover:bg-slate-800 transition-all duration-200 transform hover:scale-105 shadow-lg"
-            >
-              お問い合わせ
-            </button>
-            <button
-              onClick={handleDocumentRequestClick}
-              className="bg-gray-300 text-gray-600 px-8 py-6 rounded-lg font-medium cursor-not-allowed shadow-lg"
-              disabled
-            >
-              資料請求（準備中）
-            </button>
+              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                <button
+                  onClick={handleContactClick}
+                  className="bg-white text-blue-600 px-10 py-5 rounded-xl font-bold hover:bg-gray-50 transition-all duration-200 transform hover:scale-105 shadow-lg text-lg"
+                >
+                  お問い合わせ
+                </button>
+                <button
+                  onClick={handleDocumentRequestClick}
+                  className="bg-white/20 backdrop-blur-sm text-white px-10 py-5 rounded-xl font-bold cursor-not-allowed border-2 border-white/30 text-lg"
+                  disabled
+                >
+                  資料請求（準備中）
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
