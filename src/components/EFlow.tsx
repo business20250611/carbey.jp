@@ -90,7 +90,7 @@ const EFlow: React.FC = () => {
       </section>
 
       {/* Video Section - Coming Soon */}
-      <section className="py-12 bg-white">
+      <section className="py-12 bg-gradient-to-b from-blue-50 to-cyan-50">
         <div className="max-w-4xl mx-auto px-6">
           <div className="relative w-full aspect-video bg-gradient-to-br from-slate-800 via-slate-700 to-gray-800 rounded-xl overflow-hidden shadow-xl">
             <div className="absolute inset-0 flex items-center justify-center">
@@ -205,12 +205,9 @@ const EFlow: React.FC = () => {
           <div className="bg-gradient-to-br from-blue-600 to-cyan-600 rounded-3xl p-12 lg:p-16 text-center relative overflow-hidden shadow-2xl">
             <div className="absolute inset-0 bg-grid-white/10"></div>
             <div className="relative">
-              <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
+              <h2 className="text-3xl lg:text-4xl font-bold text-white mb-10">
                 グローバル市場への第一歩を
               </h2>
-              <p className="text-xl text-blue-50 mb-10 max-w-2xl mx-auto">
-                E-Flowで越境ECビジネスを始めませんか？
-              </p>
 
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <button
