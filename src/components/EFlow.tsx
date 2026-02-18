@@ -84,9 +84,7 @@ const EFlow: React.FC = () => {
             グローバル越境ECプラットフォーム
           </p>
           <p className="text-lg text-gray-200 leading-relaxed max-w-3xl mx-auto">
-            日本の優れた商品を世界へ。<br />
-            越境ECビジネスをトータルでサポートし、<br />
-            グローバル市場での成功を実現します。
+            日本の優れた商品を世界へ。
           </p>
         </div>
       </section>
@@ -182,9 +180,6 @@ const EFlow: React.FC = () => {
                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-300"></div>
                 <div className="relative bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 h-full">
                   <div className="flex flex-col items-center text-center mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-lg flex items-center justify-center flex-shrink-0 mb-4">
-                      <span className="text-white text-xl font-bold">{index + 1}</span>
-                    </div>
                     <h3 className="text-2xl font-bold text-gray-900">
                       {item.title}
                     </h3>
