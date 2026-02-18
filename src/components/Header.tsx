@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { Menu, X, Car } from 'lucide-react';
+import { Menu, X, Car, ChevronDown } from 'lucide-react';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -17,11 +20,26 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsServicesDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   const navItems = [
     { name: 'カーベイとは', path: '/about' },
-    { name: '事業内容', path: '/services' },
     { name: '会社情報', path: '/company' },
     { name: '企業理念', path: '/philosophy' },
+  ];
+
+  const servicesItems = [
+    { name: 'カーベイ', path: '/services' },
+    { name: 'E-Flow', path: '/eflow' },
   ];
 
   const handleNavigation = (path: string) => {
@@ -77,6 +95,41 @@ const Header: React.FC = () => {
                 {item.name}
               </button>
             ))}
+
+            {/* Services Dropdown */}
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={() => setIsServicesDropdownOpen(!isServicesDropdownOpen)}
+                className={`text-white hover:text-gray-200 transition-colors duration-200 font-medium flex items-center gap-1 ${
+                  location.pathname === '/services' || location.pathname === '/eflow'
+                    ? 'border-b-2 border-white pb-1'
+                    : ''
+                }`}
+              >
+                事業内容
+                <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isServicesDropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              {isServicesDropdownOpen && (
+                <div className="absolute top-full mt-2 bg-white rounded-lg shadow-xl py-2 min-w-[160px] z-50">
+                  {servicesItems.map((item) => (
+                    <button
+                      key={item.name}
+                      onClick={() => {
+                        handleNavigation(item.path);
+                        setIsServicesDropdownOpen(false);
+                      }}
+                      className={`w-full text-left px-6 py-3 text-gray-800 hover:bg-blue-50 transition-colors duration-200 font-medium ${
+                        location.pathname === item.path ? 'bg-blue-100 text-blue-600' : ''
+                      }`}
+                    >
+                      {item.name}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <button
               onClick={() => handleContactNavigation('contact')}
               className="bg-white text-[#1F2F4D] px-8 py-4 rounded-lg font-semibold hover:bg-white transition-all duration-200 transform hover:scale-105 shadow-lg text-lg"
@@ -118,9 +171,33 @@ const Header: React.FC = () => {
                   {item.name}
                 </button>
               ))}
-              {/* <button className="bg-gray-900 text-white px-6 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-colors duration-200 w-full mt-4 text-lg">
-                お問い合わせ
-              </button> */}
+
+              {/* Mobile Services Dropdown */}
+              <div>
+                <button
+                  onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+                  className="text-white hover:text-gray-200 transition-colors duration-200 font-medium px-2 py-1 text-left flex items-center justify-between w-full"
+                >
+                  事業内容
+                  <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isMobileServicesOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {isMobileServicesOpen && (
+                  <div className="ml-4 mt-2 space-y-2">
+                    {servicesItems.map((item) => (
+                      <button
+                        key={item.name}
+                        onClick={() => handleNavigation(item.path)}
+                        className={`text-white hover:text-gray-200 transition-colors duration-200 font-medium px-2 py-1 text-left block w-full ${
+                          location.pathname === item.path ? 'border-l-2 border-white pl-4' : ''
+                        }`}
+                      >
+                        {item.name}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+
               <button
                 onClick={() => handleContactNavigation('contact')}
                 className="bg-white text-[#1F2F4D] border border-[#1F2F4D] px-6 py-4 rounded-lg font-semibold hover:bg-[#1F2F4D] hover:text-white transition-colors duration-200 w-full mt-4 text-lg"
