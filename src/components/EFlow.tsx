@@ -40,10 +40,6 @@ const EFlow: React.FC = () => {
     {
       title: 'データドリブン戦略',
       description: '市場データを活用し、需要予測や価格戦略を最適化。収益性の高い商品展開をサポートします。'
-    },
-    {
-      title: 'ワンストップソリューション',
-      description: '商品選定から出品、発送、カスタマーサポートまで、すべてのプロセスを一元管理します。'
     }
   ];
 
@@ -58,8 +54,34 @@ const EFlow: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section with Gradient Overlay */}
-      <section className="relative py-32 lg:py-40 overflow-hidden">
+      {/* Header Logo Section */}
+      <section className="bg-white py-8 border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 flex justify-center">
+          <img
+            src="/eflow_transparent.png"
+            alt="E-Flow Logo"
+            className="h-12"
+          />
+        </div>
+      </section>
+
+      {/* Video Section - Coming Soon */}
+      <section className="relative w-full aspect-video bg-gradient-to-br from-slate-800 via-slate-700 to-gray-800">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center">
+            <div className="w-24 h-24 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6 border border-white/20">
+              <svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+            <h2 className="text-3xl font-bold text-white mb-2">動画準備中</h2>
+            <p className="text-gray-300">Coming Soon</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Hero Section */}
+      <section className="relative py-20 lg:py-28 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -69,51 +91,18 @@ const EFlow: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-blue-900/85 via-slate-800/80 to-gray-900/85"></div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
-            <div className="lg:w-1/2 text-white">
-              <img
-                src="/eflow_transparent.png"
-                alt="E-Flow Logo"
-                className="h-20 lg:h-24 mb-8"
-              />
-              <h1 className="text-5xl lg:text-6xl font-bold mb-6">
-                E-FLOW
-              </h1>
-              <p className="text-2xl mb-4 text-blue-100">
-                グローバル越境ECプラットフォーム
-              </p>
-              <p className="text-lg text-gray-200 leading-relaxed">
-                日本の優れた商品を世界へ。<br />
-                越境ECビジネスをトータルでサポートし、<br />
-                グローバル市場での成功を実現します。
-              </p>
-            </div>
-
-            <div className="lg:w-1/2">
-              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
-                <h3 className="text-white text-xl font-bold mb-6">ワンストップソリューション</h3>
-                <ul className="space-y-4 text-white">
-                  <li className="flex items-start gap-3">
-                    <ShoppingCart className="w-6 h-6 text-blue-300 flex-shrink-0 mt-1" />
-                    <span>商品選定から海外出品まで</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Package className="w-6 h-6 text-blue-300 flex-shrink-0 mt-1" />
-                    <span>発送代行で手間いらず</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Globe className="w-6 h-6 text-blue-300 flex-shrink-0 mt-1" />
-                    <span>グローバル市場へのアクセス</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <TrendingUp className="w-6 h-6 text-blue-300 flex-shrink-0 mt-1" />
-                    <span>継続的な売上サイクル</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center text-white">
+          <h1 className="text-5xl lg:text-6xl font-bold mb-6">
+            E-FLOW
+          </h1>
+          <p className="text-2xl mb-4 text-blue-100">
+            グローバル越境ECプラットフォーム
+          </p>
+          <p className="text-lg text-gray-200 leading-relaxed max-w-3xl mx-auto">
+            日本の優れた商品を世界へ。<br />
+            越境ECビジネスをトータルでサポートし、<br />
+            グローバル市場での成功を実現します。
+          </p>
         </div>
       </section>
 
@@ -182,7 +171,7 @@ const EFlow: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             {businessModel.map((item, index) => (
               <div
                 key={index}
@@ -190,67 +179,20 @@ const EFlow: React.FC = () => {
               >
                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-300"></div>
                 <div className="relative bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 h-full">
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="flex flex-col items-center text-center mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-lg flex items-center justify-center flex-shrink-0 mb-4">
                       <span className="text-white text-xl font-bold">{index + 1}</span>
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900 pt-2">
+                    <h3 className="text-2xl font-bold text-gray-900">
                       {item.title}
                     </h3>
                   </div>
-                  <p className="text-gray-600 leading-relaxed pl-16">
+                  <p className="text-gray-600 leading-relaxed text-center">
                     {item.description}
                   </p>
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits Section - Dark Theme */}
-      <section className="py-20 lg:py-24 bg-gradient-to-br from-slate-800 via-slate-700 to-gray-800 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-white/5"></div>
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
-              E-Flowの強み
-            </h2>
-            <p className="text-xl text-blue-300 font-medium">
-              なぜE-Flowが選ばれるのか
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white/5 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/10 transition-all duration-300">
-              <div className="w-14 h-14 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-xl flex items-center justify-center mb-6">
-                <TrendingUp className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-4">豊富な実績</h3>
-              <p className="text-gray-300 leading-relaxed">
-                多数の企業様の越境EC進出をサポートし、確かな実績を積み重ねてきました。
-              </p>
-            </div>
-
-            <div className="bg-white/5 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/10 transition-all duration-300">
-              <div className="w-14 h-14 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-xl flex items-center justify-center mb-6">
-                <Globe className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-4">専門知識</h3>
-              <p className="text-gray-300 leading-relaxed">
-                グローバル市場の動向や各国の商習慣を熟知した専門チームがサポートします。
-              </p>
-            </div>
-
-            <div className="bg-white/5 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/10 transition-all duration-300">
-              <div className="w-14 h-14 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-xl flex items-center justify-center mb-6">
-                <Package className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-4">最新テクノロジー</h3>
-              <p className="text-gray-300 leading-relaxed">
-                AIやデータ分析を活用した最先端のツールで、効率的なビジネス展開を実現します。
-              </p>
-            </div>
           </div>
         </div>
       </section>
