@@ -200,9 +200,9 @@ const EFlow: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 lg:py-24 bg-gradient-to-b from-white to-gray-50">
+      <section className="py-20 lg:py-24 bg-gradient-to-br from-blue-50 via-cyan-50 to-blue-100">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
-          <div className="bg-gradient-to-br from-blue-600 to-cyan-600 rounded-3xl p-12 lg:p-16 text-center relative overflow-hidden shadow-2xl">
+          <div className="bg-gradient-to-br from-blue-500 to-cyan-500 rounded-3xl p-12 lg:p-16 text-center relative overflow-hidden shadow-2xl">
             <div className="absolute inset-0 bg-grid-white/10"></div>
             <div className="relative">
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-10">

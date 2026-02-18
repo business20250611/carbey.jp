@@ -38,7 +38,7 @@ const Header: React.FC = () => {
   ];
 
   const servicesItems = [
-    { name: 'カーベイ', path: '/services' },
+    { name: 'Carbey自動売買システム', path: '/services' },
     { name: 'E-Flow', path: '/eflow' },
   ];
 
