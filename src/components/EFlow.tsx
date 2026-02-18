@@ -9,22 +9,22 @@ const EFlow: React.FC = () => {
     {
       icon: <ShoppingCart className="w-16 h-16 text-white" />,
       title: '商品選定',
-      description: '国内サイトで魅力的な商品を選定し、グローバル市場への展開を準備します'
+      description: '国内サイトで魅力的な商品を選定。本部のノウハウをもとに、誰でも簡単に商品選定ができます。'
     },
     {
       icon: <Globe className="w-16 h-16 text-white" />,
       title: '海外サイト出品',
-      description: '専用ツールを使用して海外ECサイトへ効率的に商品を出品します'
+      description: '本部が開発した専用ツールを使用し、海外ECサイトへ効率的に商品を出品します。'
     },
     {
       icon: <Package className="w-16 h-16 text-white" />,
-      title: '発送代行',
-      description: '商品が売れたら梱包・発送を代行し、スムーズなお届けを実現します'
+      title: '商品の発送',
+      description: '商品が売れたら梱包・発送を行い、スムーズなお届けを実現します。'
     },
     {
       icon: <TrendingUp className="w-16 h-16 text-white" />,
       title: '売上の入金',
-      description: '売上を受け取り、継続的にビジネスサイクルを回していきます'
+      description: '売上を受け取り、継続的にビジネスサイクルを回していきます。キャッシュフローが速く、スピーディーに資金回転できる点が強みです。'
     }
   ];
 
@@ -143,9 +143,7 @@ const EFlow: React.FC = () => {
               >
                 <div className="flex justify-center mb-6">
                   <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <div className="w-12 h-12 text-white">
-                      {feature.icon}
-                    </div>
+                    {feature.icon}
                   </div>
                 </div>
                 <div className="text-center">
