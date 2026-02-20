@@ -3,102 +3,79 @@ import { ChevronDown } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Video Background */}
-      <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster="/img3.webp"
-          className="w-full h-full object-cover"
+    <>
+      {/* Hero Text Section */}
+      <section className="relative py-20 lg:py-28 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
           style={{
-            filter: 'brightness(1.1) contrast(1.05)'
+            backgroundImage: 'url("/img4.webp")',
           }}
         >
-          <source src="https://videos.pexels.com/video-files/2169880/2169880-uhd_3840_2160_25fps.mp4" type="video/mp4" />
-        </video>
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/85 via-slate-800/80 to-gray-900/85"></div>
+        </div>
 
-        {/* Dark Gradient Overlay */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: 'linear-gradient(180deg, rgba(10,15,25,0.45) 0%, rgba(10,15,25,0.35) 50%, rgba(10,15,25,0.45) 100%)'
-          }}
-        ></div>
-      </div>
-
-      {/* Content Container */}
-      <div className="relative z-10 text-center text-white max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="space-y-8 lg:space-y-12">
-          {/* Main Heading */}
-          <h1
-            className="font-bold leading-tight tracking-tight"
-            style={{
-              fontSize: 'clamp(2.5rem, 8vw, 5rem)',
-              fontFamily: '"Noto Sans JP", sans-serif',
-              fontWeight: 700,
-              letterSpacing: '-0.02em'
-            }}
-            aria-label="カーベイ株式会社"
-          >
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center text-white">
+          <h1 className="text-5xl lg:text-6xl font-bold mb-6">
             カーベイ株式会社
           </h1>
-
-          {/* Subtitle */}
-          <p
-            className="font-medium leading-relaxed max-w-3xl mx-auto"
-            style={{
-              fontSize: 'clamp(1.25rem, 4vw, 2rem)',
-              fontFamily: '"Noto Sans JP", sans-serif',
-              fontWeight: 500,
-              letterSpacing: '0.01em'
-            }}
-            aria-label="儲かる車屋をみんなの手に"
-          >
+          <p className="text-2xl mb-4 text-blue-100">
             儲かる車屋をみんなの手に。
           </p>
         </div>
-      </div>
+      </section>
 
-      {/* Scroll Indicator */}
-      <div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/80 animate-bounce cursor-pointer"
-        onClick={() => {
-          window.scrollTo({
-            top: window.innerHeight,
-            behavior: 'smooth'
-          });
-        }}
-        aria-label="下にスクロール"
-        role="button"
-        tabIndex={0}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            window.scrollTo({
-              top: window.innerHeight,
-              behavior: 'smooth'
-            });
-          }
-        }}
-      >
-        <ChevronDown className="h-8 w-8" />
+      {/* Video Section */}
+      <section className="py-12 bg-gradient-to-b from-blue-50 to-cyan-50">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-xl">
+            <iframe
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      {/* Scroll Indicator - positioned after video */}
+      <div className="bg-gradient-to-b from-cyan-50 to-white py-8">
+        <div
+          className="mx-auto w-fit text-gray-400 animate-bounce cursor-pointer"
+          onClick={() => {
+            const nextSection = document.querySelector('#what-we-do');
+            if (nextSection) {
+              nextSection.scrollIntoView({ behavior: 'smooth' });
+            }
+          }}
+          aria-label="下にスクロール"
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              const nextSection = document.querySelector('#what-we-do');
+              if (nextSection) {
+                nextSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            }
+          }}
+        >
+          <ChevronDown className="h-8 w-8" />
+        </div>
       </div>
 
       {/* Reduced Motion Support */}
       <style>{`
         @media (prefers-reduced-motion: reduce) {
-          video {
-            display: none;
-          }
           .animate-bounce {
             animation: none;
           }
         }
       `}</style>
-    </section>
+    </>
   );
 };
 
