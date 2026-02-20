@@ -5,29 +5,31 @@ const Hero: React.FC = () => {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Video Background */}
-      <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster="/img3.webp"
-          className="w-full h-full object-cover"
-          style={{
-            filter: 'brightness(1.1) contrast(1.05)'
-          }}
-        >
-          <source src="https://videos.pexels.com/video-files/2169880/2169880-uhd_3840_2160_25fps.mp4" type="video/mp4" />
-        </video>
+      <div className="absolute inset-0 z-0 flex items-center justify-center bg-black">
+        <div className="relative w-full max-w-[1280px] mx-auto aspect-video">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster="/img3.webp"
+            className="w-full h-full object-cover"
+            style={{
+              filter: 'brightness(1.1) contrast(1.05)'
+            }}
+          >
+            <source src="https://videos.pexels.com/video-files/2169880/2169880-uhd_3840_2160_25fps.mp4" type="video/mp4" />
+          </video>
 
-        {/* Dark Gradient Overlay */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: 'linear-gradient(180deg, rgba(10,15,25,0.45) 0%, rgba(10,15,25,0.35) 50%, rgba(10,15,25,0.45) 100%)'
-          }}
-        ></div>
+          {/* Dark Gradient Overlay */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background: 'linear-gradient(180deg, rgba(10,15,25,0.45) 0%, rgba(10,15,25,0.35) 50%, rgba(10,15,25,0.45) 100%)'
+            }}
+          ></div>
+        </div>
       </div>
 
       {/* Content Container */}
