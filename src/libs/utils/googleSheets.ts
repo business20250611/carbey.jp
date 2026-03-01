@@ -14,7 +14,7 @@ export interface FormData {
 export const sendToGoogleSheetsWithFetch = async (data: FormData): Promise<void> => {
   // Replace with your actual Google Apps Script Web App URL
   // You'll get this URL after deploying the Google Apps Script as a Web App
-  const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwS7PYBYea1dXKL3iLnmuCZE4OilMN6fE0ukmfkKYTgyR2PLrEaUjgygODLbXxtecoz/exec';
+  const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyceruyi_w1iTGcfNG_GSyn6tjB64aujzyjhyZzGTKUPkYHiM5Bo0DsRJywSz-NGnO1/exec';
 
   try {
     const formData = new FormData();
