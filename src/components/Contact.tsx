@@ -18,6 +18,7 @@ const Contact: React.FC = () => {
   });
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
+  const [showErrorModal, setShowErrorModal] = useState(false);
 
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -32,7 +33,7 @@ const Contact: React.FC = () => {
     e.preventDefault();
 
     if (!agree) {
-      alert("プライバシーポリシーに同意してください。");
+      setShowErrorModal(true);
       return;
     }
 
@@ -79,7 +80,30 @@ const Contact: React.FC = () => {
         isOpen={showModal}
         onClose={() => setShowModal(false)}
         message={modalMessage}
-      />
+      >
+        <div className="text-center">
+          <button
+            onClick={() => setShowModal(false)}
+            className="bg-slate-700 text-white px-8 py-3 rounded-lg font-medium hover:bg-slate-800 transition-colors duration-200"
+          >
+            OK
+          </button>
+        </div>
+      </Modal>
+      <Modal
+        isOpen={showErrorModal}
+        onClose={() => setShowErrorModal(false)}
+        message="プライバシーポリシーにチェックを入れてください"
+      >
+        <div className="text-center">
+          <button
+            onClick={() => setShowErrorModal(false)}
+            className="bg-slate-700 text-white px-8 py-3 rounded-lg font-medium hover:bg-slate-800 transition-colors duration-200"
+          >
+            OK
+          </button>
+        </div>
+      </Modal>
       <div key={location.pathname + location.search} className="min-h-screen flex items-center justify-center py-32" style={{ backgroundColor: '#eef3f9' }}>
         <div className="max-w-2xl w-full mx-auto px-6 lg:px-8">
         {/* Header */}
@@ -183,18 +207,22 @@ const Contact: React.FC = () => {
             <div className="flex items-center justify-center space-x-2">
             <input
               type="checkbox"
+              checked={agree}
               onChange={(e) => setAgree(e.target.checked)}
               id="agree"
               className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+              required
             />
             <label htmlFor="agree" className="text-sm text-gray-700">
               <a
                 href="/privacy-policy"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-blue-600 hover:text-blue-800 underline"
               >
                 プライバシーポリシー
               </a>
-              に同意する
+              に同意する<span className="text-red-600 ml-1">*</span>
             </label>
           </div>
 
@@ -202,7 +230,12 @@ const Contact: React.FC = () => {
             <div className="text-center pt-4">
               <button
                 type="submit"
-                className="bg-slate-700 text-white px-12 py-4 rounded-lg font-medium hover:bg-slate-800 transition-colors duration-200 text-lg"
+                disabled={!agree}
+                className={`px-12 py-4 rounded-lg font-medium transition-colors duration-200 text-lg ${
+                  agree
+                    ? 'bg-slate-700 text-white hover:bg-slate-800 cursor-pointer'
+                    : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                }`}
               >
                 送信
               </button>
