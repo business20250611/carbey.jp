@@ -138,7 +138,7 @@ const Contact: React.FC = () => {
             {/* 会社名 */}
             <div>
               <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
-                会社名
+                会社名1
               </label>
               <input
                 type="text"
