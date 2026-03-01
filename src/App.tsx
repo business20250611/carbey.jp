@@ -16,6 +16,7 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 import LegalNotice from './components/LegalNotice';
 import NewsDetail from './components/NewsDetail';
 import EFlow from './components/EFlow';
+import DocumentSelect from './components/DocumentSelect';
 const HomePage = () => (
   <>
     <Hero />
@@ -56,6 +57,7 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/eflow" element={<EFlow />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/document-select" element={<DocumentSelect />} />
           <Route path="/philosophy" element={<Philosophy />} />
           <Route path="/company" element={<Company />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />

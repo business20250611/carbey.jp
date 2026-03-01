@@ -61,7 +61,11 @@ const Header: React.FC = () => {
   };
 
   const handleContactNavigation = (type: 'contact' | 'document') => {
-    navigate(`/contact?type=${type}&t=${Date.now()}`);
+    if (type === 'document') {
+      navigate('/document-select');
+    } else {
+      navigate(`/contact?type=${type}&t=${Date.now()}`);
+    }
     window.scrollTo(0, 0);
     setIsMenuOpen(false);
   };

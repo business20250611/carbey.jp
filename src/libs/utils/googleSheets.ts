@@ -1,6 +1,7 @@
 // Google Apps Script integration utility
 export interface FormData {
   type: 'document' | 'contact';
+  service?: string;
   company: string;
   name: string;
   email: string;
@@ -24,6 +25,9 @@ export const sendToGoogleSheetsWithFetch = async (data: FormData): Promise<void>
     formData.append('message', data.message);
     formData.append('time', data.time);
     formData.append('type', data.type);
+    if (data.service) {
+      formData.append('service', data.service);
+    }
 
     const response = await fetch(WEB_APP_URL, {
       method: 'POST',

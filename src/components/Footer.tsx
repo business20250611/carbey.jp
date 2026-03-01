@@ -1,12 +1,17 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Phone, Mail, MapPin, Clock, Calendar } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Calendar, FileText } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const navigate = useNavigate();
 
   const handleContactClick = () => {
     navigate(`/contact?type=contact&t=${Date.now()}`);
+    window.scrollTo(0, 0);
+  };
+
+  const handleDocumentClick = () => {
+    navigate('/document-select');
     window.scrollTo(0, 0);
   };
 
@@ -48,12 +53,19 @@ const Footer: React.FC = () => {
 
             {/* ボタン */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button 
+              <button
                 onClick={handleContactClick}
                 className="bg-[#1F2F4D] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#2A3F5F] transition-all duration-200 transform hover:scale-105 shadow-lg flex items-center space-x-2"
               >
                 <Mail className="h-5 w-5" />
                 <span>メールで問い合わせ</span>
+              </button>
+              <button
+                onClick={handleDocumentClick}
+                className="bg-red-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-red-700 transition-all duration-200 transform hover:scale-105 shadow-lg flex items-center space-x-2"
+              >
+                <FileText className="h-5 w-5" />
+                <span>資料請求</span>
               </button>
             </div>
           </div>

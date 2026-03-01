@@ -5,6 +5,10 @@ import Modal from './Modal';
 
 const Contact: React.FC = () => {
   const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const serviceType = searchParams.get('service');
+  const isDocument = location.search.includes("type=document");
+
   const [agree, setAgree] = useState(false);
   const [formData, setFormData] = useState<any>({
     company: '',
@@ -14,7 +18,8 @@ const Contact: React.FC = () => {
     down_link: '',
     phone: '',
     message: '',
-    type: location.search.includes("type=document") ? "document" : "contact"
+    type: isDocument ? "document" : "contact",
+    service: serviceType || ''
   });
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
@@ -52,6 +57,7 @@ const Contact: React.FC = () => {
 
     const googleSheetsData: FormData = {
       type: type,
+      service: serviceType || '',
       company: formData.company,
       name: formData.name,
       email: formData.email,
@@ -66,7 +72,8 @@ const Contact: React.FC = () => {
       email: '',
       phone: '',
       message: '',
-      type: type
+      type: type,
+      service: serviceType || ''
     });
     setAgree(false);
 
@@ -110,10 +117,14 @@ const Contact: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            {location.search.includes("type=document") ? "REQUEST" : "CONTACT"}
+            {isDocument ? "REQUEST" : "CONTACT"}
           </h1>
           <p className="text-lg text-gray-600">
-            {location.search.includes("type=document") ? "資料請求" : "お問い合わせ"}
+            {isDocument ? (
+              serviceType === 'carbey' ? 'Carbey 資料請求' :
+              serviceType === 'eflow' ? 'E-Flow 資料請求' :
+              '資料請求'
+            ) : "お問い合わせ"}
           </p>
         </div>
 
