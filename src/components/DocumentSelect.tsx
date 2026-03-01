@@ -23,9 +23,13 @@ const DocumentSelect: React.FC = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          <div className="rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl" style={{ backgroundColor: '#FF6B6B' }}>
+          <div
+            onClick={() => handleDocumentRequest('carbey')}
+            className="rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer"
+            style={{ backgroundColor: '#FF6B6B' }}
+          >
             <div className="p-10 flex flex-col items-center justify-center min-h-[320px]">
-              <div className="flex items-center justify-center w-16 h-16 rounded-full mb-6" style={{ backgroundColor: '#FFB6C1' }}>
+              <div className="flex items-center justify-center w-16 h-16 rounded-full mb-6 bg-white">
                 <Car className="h-8 w-8" style={{ color: '#FF6B6B' }} />
               </div>
 
@@ -38,18 +42,21 @@ const DocumentSelect: React.FC = () => {
               </p>
 
               <button
-                onClick={() => handleDocumentRequest('carbey')}
-                className="w-full max-w-xs bg-white px-8 py-4 rounded-lg font-bold text-xl hover:bg-opacity-90 transition-all duration-200 shadow-lg" style={{ color: '#FF6B6B' }}
+                className="w-full max-w-xs bg-white px-8 py-4 rounded-lg font-bold text-xl hover:bg-opacity-90 transition-all duration-200 shadow-lg pointer-events-none" style={{ color: '#FF6B6B' }}
               >
                 資料請求する
               </button>
             </div>
           </div>
 
-          <div className="rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl" style={{ backgroundColor: '#3B7DD6' }}>
+          <div
+            onClick={() => handleDocumentRequest('eflow')}
+            className="rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer"
+            style={{ backgroundColor: '#3B7DD6' }}
+          >
             <div className="p-10 flex flex-col items-center justify-center min-h-[320px]">
-              <div className="flex items-center justify-center w-16 h-16 rounded-full mb-6" style={{ backgroundColor: '#B3D4F5' }}>
-                <Globe className="h-8 w-8" style={{ color: '#1E3A8A' }} />
+              <div className="flex items-center justify-center w-16 h-16 rounded-full mb-6 bg-white">
+                <Globe className="h-8 w-8" style={{ color: '#3B7DD6' }} />
               </div>
 
               <h2 className="text-2xl font-bold text-center mb-3 text-white">
@@ -61,8 +68,7 @@ const DocumentSelect: React.FC = () => {
               </p>
 
               <button
-                onClick={() => handleDocumentRequest('eflow')}
-                className="w-full max-w-xs bg-white px-8 py-4 rounded-lg font-bold text-xl hover:bg-opacity-90 transition-all duration-200 shadow-lg" style={{ color: '#3B7DD6' }}
+                className="w-full max-w-xs bg-white px-8 py-4 rounded-lg font-bold text-xl hover:bg-opacity-90 transition-all duration-200 shadow-lg pointer-events-none" style={{ color: '#3B7DD6' }}
               >
                 資料請求する
               </button>
