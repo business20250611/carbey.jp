@@ -68,6 +68,7 @@ const Contact: React.FC = () => {
       message: '',
       type: type
     });
+    setAgree(false);
 
     sendToGoogleSheetsWithFetch(googleSheetsData).catch(() => {
       console.clear();
