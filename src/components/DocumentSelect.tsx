@@ -39,11 +39,9 @@ const DocumentSelect: React.FC = () => {
 
               <button
                 onClick={() => handleDocumentRequest('carbey')}
-                className="w-full max-w-xs bg-white px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg" style={{ color: '#FF6B6B' }}
+                className="w-full max-w-xs bg-white px-8 py-4 rounded-lg font-bold text-xl hover:bg-opacity-90 transition-all duration-200 shadow-lg" style={{ color: '#FF6B6B' }}
               >
-                <FileText className="h-5 w-5" />
-                <span>Carbeyの資料を請求する</span>
-                <ArrowRight className="h-5 w-5" />
+                資料請求する
               </button>
             </div>
           </div>
@@ -64,11 +62,9 @@ const DocumentSelect: React.FC = () => {
 
               <button
                 onClick={() => handleDocumentRequest('eflow')}
-                className="w-full max-w-xs bg-white px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg" style={{ color: '#3B7DD6' }}
+                className="w-full max-w-xs bg-white px-8 py-4 rounded-lg font-bold text-xl hover:bg-opacity-90 transition-all duration-200 shadow-lg" style={{ color: '#3B7DD6' }}
               >
-                <FileText className="h-5 w-5" />
-                <span>E-Flowの資料を請求する</span>
-                <ArrowRight className="h-5 w-5" />
+                資料請求する
               </button>
             </div>
           </div>
