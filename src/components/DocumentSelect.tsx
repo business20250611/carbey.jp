@@ -18,7 +18,7 @@ const DocumentSelect: React.FC = () => {
             ご希望の資料をお選びください
           </h1>
           <p className="text-lg" style={{ color: '#666' }}>
-            各サービスの詳細資料をご用意しております
+            当社では複数のフランチャイズ事業を展開しています。ご希望の資料をお選びください。
           </p>
         </div>
 
