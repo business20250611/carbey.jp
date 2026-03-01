@@ -218,7 +218,7 @@ const EFlow: React.FC = () => {
                 </button>
                 <button
                   onClick={handleDocumentRequestClick}
-                  className="bg-white/20 backdrop-blur-sm text-white px-10 py-5 rounded-xl font-bold hover:bg-white/30 transition-all duration-200 transform hover:scale-105 border-2 border-white/30 text-lg"
+                  className="bg-white text-blue-600 px-10 py-5 rounded-xl font-bold hover:bg-gray-50 transition-all duration-200 transform hover:scale-105 shadow-lg text-lg border-2 border-white"
                 >
                   資料請求
                 </button>
