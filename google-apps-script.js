@@ -78,48 +78,12 @@ function doPost(e) {
         });
   
       } else {
-        // Send confirmation email to user
-        const userSubject = '【カーベイ株式会社】お問い合わせを受け付けました';
-        const userHtmlBody = `
-          <div style="font-family:'Segoe UI','Hiragino Sans','Meiryo',sans-serif;color:#333;line-height:1.8;font-size:15px;">
-            <p>この度はお問い合わせいただきありがとうございます。<br>
-            内容を確認のうえ担当者よりご連絡いたします。<br>
-            今しばらくお待ちください。</p>
-
-            <hr style="border:none;border-top:1px solid #ddd;margin:25px 0;">
-
-            <p style="font-size:13px;color:#666;">
-              <strong>■運営会社情報</strong><br>
-              カーベイ株式会社<br>
-              〒243-0014<br>
-              神奈川県厚木市旭町1-21-12 三紫ビル3A<br>
-              <a href="https://carbey.jp" style="color:#0066cc;">https://carbey.jp</a>
-            </p>
-
-            <hr style="border:none;border-top:1px solid #ddd;margin:25px 0;">
-
-            <p style="font-size:13px;color:#999;">
-              ※このメールは送信専用アドレス（${noreplyAddress}）から自動送信されています。<br>
-              ご返信いただいても対応できませんのでご了承ください。
-            </p>
-          </div>`;
-
-        // Send to user
-        MailApp.sendEmail({
-          to: email,
-          subject: userSubject,
-          htmlBody: userHtmlBody,
-          name: 'カーベイ株式会社',
-          replyTo: adminMail
-        });
-
-        // Notify admin
-        const adminSubject = '【Carbey】新しいお問い合わせ';
-        const adminHtmlBody = `
+        subject = '【Carbey】新しいお問い合わせ';
+        htmlBody = `
           <div style="font-family:'Segoe UI','Hiragino Sans','Meiryo',sans-serif;color:#333;line-height:1.8;font-size:15px;">
             <p style="font-size:16px;">💬 <strong>新しいお問い合わせが届きました。</strong></p>
             <p>以下の内容をご確認ください。</p>
-
+  
             <div style="background:#f8f9fa;border-radius:8px;padding:15px;margin:20px 0;">
               <p>🏢 <strong>会社名:</strong> ${company || '-'}<br/>
               👤 <strong>氏名:</strong> ${name || '-'}<br/>
@@ -128,21 +92,22 @@ function doPost(e) {
               💬 <strong>お問い合わせ内容:</strong><br/>
               <span style="white-space:pre-wrap;">${message || '-'}</span></p>
             </div>
-
+  
             <p style="color:#666;font-size:13px;">⏰ <strong>送信時刻:</strong> ${time}</p>
-
+  
             <hr style="border:none;border-top:1px solid #ddd;margin:25px 0;">
             <p style="font-size:13px;color:#999;">
               ※このメールはシステムから自動送信されています。<br>
               内容に心当たりがない場合は、管理者までご連絡ください。
             </p>
           </div>`;
-
-        // Notify admin
+        
+        // Notify admin (and optionally CC user)
         MailApp.sendEmail({
           to: adminMail,
-          subject: adminSubject,
-          htmlBody: adminHtmlBody,
+          subject,
+          htmlBody,
+          attachments,
           name: senderName,
           replyTo: email
         });
