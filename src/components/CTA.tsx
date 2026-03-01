@@ -11,7 +11,7 @@ const CTA: React.FC = () => {
   };
 
   const handleDocumentClick = () => {
-    navigate(`/contact?type=document&t=${Date.now()}`);
+    navigate('/document-select');
     window.scrollTo(0, 0);
   };
 
