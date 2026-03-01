@@ -44,7 +44,7 @@ export const sendToGoogleSheetsWithFetch = async (data: FormData): Promise<void>
     console.log('Data sent to Google Sheets successfully:', result);
   } catch (error) {
     
-    // console.error('Error sending data to Google Sheets:', error);
-    // throw error;
+    console.error('Error sending data to Google Sheets:', error);
+    throw error;
   }
 };
