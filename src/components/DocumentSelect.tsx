@@ -25,8 +25,8 @@ const DocumentSelect: React.FC = () => {
         <div className="grid md:grid-cols-2 gap-8">
           <div className="rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl" style={{ backgroundColor: '#FF6B6B' }}>
             <div className="p-10 flex flex-col items-center justify-center min-h-[320px]">
-              <div className="flex items-center justify-center w-16 h-16 rounded-full mb-6" style={{ backgroundColor: '#FFB6C1' }}>
-                <Car className="h-8 w-8" style={{ color: '#FF6B6B' }} />
+              <div className="flex items-center justify-center w-16 h-16 rounded-full bg-white bg-opacity-30 mb-6">
+                <Car className="h-8 w-8 text-white" />
               </div>
 
               <h2 className="text-2xl font-bold text-center mb-3 text-white">
@@ -50,8 +50,8 @@ const DocumentSelect: React.FC = () => {
 
           <div className="rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl" style={{ backgroundColor: '#3B7DD6' }}>
             <div className="p-10 flex flex-col items-center justify-center min-h-[320px]">
-              <div className="flex items-center justify-center w-16 h-16 rounded-full mb-6" style={{ backgroundColor: '#B3D4F5' }}>
-                <Globe className="h-8 w-8" style={{ color: '#1E3A8A' }} />
+              <div className="flex items-center justify-center w-16 h-16 rounded-full bg-white bg-opacity-30 mb-6">
+                <Globe className="h-8 w-8 text-white" />
               </div>
 
               <h2 className="text-2xl font-bold text-center mb-3 text-white">
