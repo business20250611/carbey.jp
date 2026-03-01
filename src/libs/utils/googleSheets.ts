@@ -14,7 +14,7 @@ export interface FormData {
 export const sendToGoogleSheetsWithFetch = async (data: FormData): Promise<void> => {
   // Replace with your actual Google Apps Script Web App URL
   // You'll get this URL after deploying the Google Apps Script as a Web App
-  const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzg3QjpgfIJQeQqV-JEHbw-GReGzxeqwmfFpcWeGnNPwI11otpMEGwNG5DF911gPLNE/exec';
+  const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwkXj0hXLSlizeEvTmRZ4J-2EnYW6oX--9IugD31r-qKhLq2S015HcwGpuDz2BjE6f7/exec';
 
   try {
     const formData = new FormData();
@@ -35,6 +35,7 @@ export const sendToGoogleSheetsWithFetch = async (data: FormData): Promise<void>
       mode: 'cors',
     });
 
+    console.log()
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
