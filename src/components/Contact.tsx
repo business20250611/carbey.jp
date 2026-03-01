@@ -29,23 +29,28 @@ const Contact: React.FC = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-   
+    e.preventDefault();
+
     if (!agree) {
-      e.preventDefault();
       alert("プライバシーポリシーに同意してください。");
       return;
     }
-     e.preventDefault();
-    location.search.includes("type=document") ? formData.type = "document" : formData.type = "contact";
+
+    const type = location.search.includes("type=document") ? "document" : "contact";
+
+    if (type === "document") {
+      setModalMessage("資料請求を送信しました。\nご入力頂いたメールアドレス宛てに資料を送信いたしました。");
+    } else {
+      setModalMessage("お問い合わせを送信しました。");
+    }
+    setShowModal(true);
+
     const now = new Date();
     const pad = (n:any) => n.toString().padStart(2, '0');
     const formattedDate = `${pad(now.getMonth() + 1)}/${pad(now.getDate())}/${now.getFullYear()} ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
-    
-    // kept for potential future use
 
-    // Prepare data for Google Sheets (in the correct column order: company, name, email, phone, message, time)
     const googleSheetsData: FormData = {
-      type: formData.type,
+      type: type,
       company: formData.company,
       name: formData.name,
       email: formData.email,
@@ -54,42 +59,18 @@ const Contact: React.FC = () => {
       time: formattedDate
     };
 
-    try {
-      await sendToGoogleSheetsWithFetch(googleSheetsData);
-      console.clear();
-      setFormData({
-        company: '',
-        name: '',
-        email: '',
-        phone: '',
-        message: '',
-        type: formData.type
-      });
+    setFormData({
+      company: '',
+      name: '',
+      email: '',
+      phone: '',
+      message: '',
+      type: type
+    });
 
-      if (formData.type === "document") {
-        setModalMessage("資料請求を送信しました。\nご入力頂いたメールアドレス宛てに資料を送信いたしました。");
-      } else {
-        setModalMessage("お問い合わせを送信しました。");
-      }
-      setShowModal(true);
-    } catch (err) {
+    sendToGoogleSheetsWithFetch(googleSheetsData).catch(() => {
       console.clear();
-
-      setFormData({
-        company: '',
-        name: '',
-        email: '',
-        phone: '',
-        message: '',
-        type: formData.type
-      });
-      if (formData.type === "document") {
-        setModalMessage("資料請求を送信しました。\nご入力頂いたメールアドレス宛てに資料を送信いたしました。");
-      } else {
-        setModalMessage("お問い合わせを送信しました。");
-      }
-      setShowModal(true);
-    }
+    });
   };
 
   return (
