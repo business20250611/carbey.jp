@@ -49,7 +49,8 @@ const EFlow: React.FC = () => {
   };
 
   const handleDocumentRequestClick = () => {
-    alert('E-Flowの資料請求は現在準備中です。もうしばらくお待ちください。');
+    navigate(`/contact?type=document&service=eflow&t=${Date.now()}`);
+    window.scrollTo(0, 0);
   };
 
   return (
@@ -217,10 +218,9 @@ const EFlow: React.FC = () => {
                 </button>
                 <button
                   onClick={handleDocumentRequestClick}
-                  className="bg-white/20 backdrop-blur-sm text-white px-10 py-5 rounded-xl font-bold cursor-not-allowed border-2 border-white/30 text-lg"
-                  disabled
+                  className="bg-white/20 backdrop-blur-sm text-white px-10 py-5 rounded-xl font-bold hover:bg-white/30 transition-all duration-200 transform hover:scale-105 border-2 border-white/30 text-lg"
                 >
-                  資料請求（準備中）
+                  資料請求
                 </button>
               </div>
             </div>
