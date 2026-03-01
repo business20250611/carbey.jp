@@ -23,42 +23,42 @@ const DocumentSelect: React.FC = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          <div className="bg-white rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+          <div className="rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl" style={{ backgroundColor: '#FFB8A3' }}>
             <div className="p-8 lg:p-10">
-              <div className="flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 mb-6 mx-auto">
-                <Car className="h-8 w-8 text-blue-600" />
+              <div className="flex items-center justify-center w-16 h-16 rounded-full bg-white mb-6 mx-auto">
+                <Car className="h-8 w-8" style={{ color: '#FF6B4A' }} />
               </div>
 
-              <h2 className="text-3xl font-bold text-center mb-4" style={{ color: '#1F2F4D' }}>
+              <h2 className="text-3xl font-bold text-center mb-4 text-white">
                 Carbey
               </h2>
 
-              <p className="text-center text-gray-600 mb-3 font-medium text-lg">
+              <p className="text-center text-white mb-3 font-medium text-lg">
                 中古車フランチャイズ
               </p>
 
-              <p className="text-center text-gray-700 mb-8 leading-relaxed">
+              <p className="text-center text-white mb-8 leading-relaxed">
                 誰でも車屋になれるビジネスモデル
               </p>
 
               <div className="space-y-3 mb-8">
                 <div className="flex items-start">
-                  <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 mr-3 flex-shrink-0"></div>
-                  <p className="text-gray-700">初期投資を抑えた開業が可能</p>
+                  <div className="w-2 h-2 rounded-full bg-white mt-2 mr-3 flex-shrink-0"></div>
+                  <p className="text-white">初期投資を抑えた開業が可能</p>
                 </div>
                 <div className="flex items-start">
-                  <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 mr-3 flex-shrink-0"></div>
-                  <p className="text-gray-700">充実したサポート体制</p>
+                  <div className="w-2 h-2 rounded-full bg-white mt-2 mr-3 flex-shrink-0"></div>
+                  <p className="text-white">充実したサポート体制</p>
                 </div>
                 <div className="flex items-start">
-                  <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 mr-3 flex-shrink-0"></div>
-                  <p className="text-gray-700">実績のあるビジネスモデル</p>
+                  <div className="w-2 h-2 rounded-full bg-white mt-2 mr-3 flex-shrink-0"></div>
+                  <p className="text-white">実績のあるビジネスモデル</p>
                 </div>
               </div>
 
               <button
                 onClick={() => handleDocumentRequest('carbey')}
-                className="w-full bg-[#1F2F4D] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#2A3F5F] transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg"
+                className="w-full bg-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-50 transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg" style={{ color: '#FF6B4A' }}
               >
                 <FileText className="h-5 w-5" />
                 <span>Carbeyの資料を請求する</span>
@@ -67,42 +67,42 @@ const DocumentSelect: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+          <div className="rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl" style={{ backgroundColor: '#4A90E2' }}>
             <div className="p-8 lg:p-10">
-              <div className="flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-6 mx-auto">
-                <Globe className="h-8 w-8 text-green-600" />
+              <div className="flex items-center justify-center w-16 h-16 rounded-full bg-white mb-6 mx-auto">
+                <Globe className="h-8 w-8 text-blue-600" />
               </div>
 
-              <h2 className="text-3xl font-bold text-center mb-4" style={{ color: '#1F2F4D' }}>
+              <h2 className="text-3xl font-bold text-center mb-4 text-white">
                 E-Flow
               </h2>
 
-              <p className="text-center text-gray-600 mb-3 font-medium text-lg">
+              <p className="text-center text-white mb-3 font-medium text-lg">
                 越境物販フランチャイズ
               </p>
 
-              <p className="text-center text-gray-700 mb-8 leading-relaxed">
+              <p className="text-center text-white mb-8 leading-relaxed">
                 在宅で始めるグローバル物販
               </p>
 
               <div className="space-y-3 mb-8">
                 <div className="flex items-start">
-                  <div className="w-2 h-2 rounded-full bg-green-500 mt-2 mr-3 flex-shrink-0"></div>
-                  <p className="text-gray-700">在宅で完結するビジネス</p>
+                  <div className="w-2 h-2 rounded-full bg-white mt-2 mr-3 flex-shrink-0"></div>
+                  <p className="text-white">在宅で完結するビジネス</p>
                 </div>
                 <div className="flex items-start">
-                  <div className="w-2 h-2 rounded-full bg-green-500 mt-2 mr-3 flex-shrink-0"></div>
-                  <p className="text-gray-700">グローバル市場へアクセス</p>
+                  <div className="w-2 h-2 rounded-full bg-white mt-2 mr-3 flex-shrink-0"></div>
+                  <p className="text-white">グローバル市場へアクセス</p>
                 </div>
                 <div className="flex items-start">
-                  <div className="w-2 h-2 rounded-full bg-green-500 mt-2 mr-3 flex-shrink-0"></div>
-                  <p className="text-gray-700">柔軟な働き方が可能</p>
+                  <div className="w-2 h-2 rounded-full bg-white mt-2 mr-3 flex-shrink-0"></div>
+                  <p className="text-white">柔軟な働き方が可能</p>
                 </div>
               </div>
 
               <button
                 onClick={() => handleDocumentRequest('eflow')}
-                className="w-full bg-green-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-green-700 transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg"
+                className="w-full bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-50 transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg"
               >
                 <FileText className="h-5 w-5" />
                 <span>E-Flowの資料を請求する</span>
