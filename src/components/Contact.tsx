@@ -131,7 +131,10 @@ const Contact: React.FC = () => {
         {/* Form Container */}
         <div className="bg-white rounded-2xl shadow-lg p-8 lg:p-12">
           <p className="text-gray-700 mb-8 leading-relaxed">
-            資料に関するお問い合わせ・ビジネスのご相談・採用についてお気軽にお問い合わせください。
+            {isDocument && serviceType === 'eflow'
+              ? 'E-Flowの資料をご希望の方は、以下のフォームに必要事項をご入力ください。内容確認後、資料をお送りいたします。'
+              : '資料に関するお問い合わせ・ビジネスのご相談・採用についてお気軽にお問い合わせください。'
+            }
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-6">
