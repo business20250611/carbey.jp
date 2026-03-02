@@ -17,7 +17,7 @@ export default function Roadmap() {
   const barRef = useRef<HTMLDivElement>(null);
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(false);
-  const [progress, setProgress] = useState(0); // 0-100
+  const [scrollPercentage, setScrollPercentage] = useState(0); // 0-100
 
   // 初期スクロール位置を設定（現在のフェーズが見えるように）
   useEffect(() => {
@@ -40,12 +40,11 @@ export default function Roadmap() {
     if (!el) return;
     setCanPrev(el.scrollLeft > 0);
     setCanNext(el.scrollLeft + el.clientWidth < el.scrollWidth - 1);
-    
-    // プログレスバーの計算を改善
+
+    // スクロール位置のパーセンテージを計算
     const maxScroll = Math.max(1, el.scrollWidth - el.clientWidth);
-    const scrollPercentage = (el.scrollLeft / maxScroll) * 100;
-    // 最小値を設定してバーが見えるようにする
-    setProgress(Math.max(scrollPercentage, 8));
+    const percentage = (el.scrollLeft / maxScroll) * 100;
+    setScrollPercentage(percentage);
   };
 
   useEffect(() => {
@@ -169,9 +168,13 @@ export default function Roadmap() {
         className="mt-3 h-3 rounded-full bg-gray-200 cursor-pointer select-none hover:bg-gray-300 transition-colors duration-200 relative"
         aria-label="ドラッグまたはクリックしてスクロール位置を移動"
       >
+        {/* ドラッグバー: 固定幅で横移動する */}
         <div
-          className="h-3 rounded-full bg-blue-600 transition-[width] duration-100 pointer-events-none relative"
-          style={{ width: `${Math.max(progress, 12.5)}%` }}
+          className="absolute h-full rounded-full bg-blue-600 transition-[left] duration-100 pointer-events-none"
+          style={{
+            width: '80px',
+            left: `calc(${scrollPercentage}% * (100% - 80px) / 100)`
+          }}
         >
           <div className="absolute right-0 top-1/2 -translate-y-1/2 w-5 h-5 bg-blue-600 rounded-full border-2 border-white shadow-md hover:scale-110 transition-transform cursor-grab active:cursor-grabbing" />
         </div>
