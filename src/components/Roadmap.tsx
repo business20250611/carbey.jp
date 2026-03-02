@@ -55,7 +55,18 @@ export default function Roadmap() {
     el.addEventListener("scroll", update);
     const ro = new ResizeObserver(update);
     ro.observe(el);
-    return () => { el.removeEventListener("scroll", update); ro.disconnect(); };
+
+    const handleMouseMove = (e: MouseEvent) => onBarMove(e as any);
+    const handleMouseUp = () => onBarUp();
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseup", handleMouseUp);
+
+    return () => {
+      el.removeEventListener("scroll", update);
+      ro.disconnect();
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
+    };
   }, []);
 
   // 1カード分ずつスクロール
@@ -78,21 +89,28 @@ export default function Roadmap() {
   const onMove = (e: React.MouseEvent) => {
     if (!isDown.current || !scroller.current) return;
     const x = e.pageX - (scroller.current.offsetLeft ?? 0);
-    const walk = (x - startX.current) * 1; // 感度
+    const walk = (x - startX.current) * 1;
     scroller.current.scrollLeft = scrollLeft.current - walk;
   };
   const onUp = () => { isDown.current = false; };
 
-  // 進捗バーをクリックしてシーク
-  const onSeek = (e: React.MouseEvent) => {
+  // プログレスバーのドラッグ機能
+  const barDragRef = useRef(false);
+  const onBarDown = (e: React.MouseEvent) => {
+    barDragRef.current = true;
+    onBarMove(e);
+  };
+  const onBarMove = (e: React.MouseEvent) => {
+    if (!barDragRef.current) return;
     const el = scroller.current;
     const bar = barRef.current;
     if (!el || !bar) return;
     const rect = bar.getBoundingClientRect();
     const ratio = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
     const max = Math.max(0, el.scrollWidth - el.clientWidth);
-    el.scrollTo({ left: max * ratio, behavior: "smooth" });
+    el.scrollLeft = max * ratio;
   };
+  const onBarUp = () => { barDragRef.current = false; };
 
   return (
     <div className="relative w-full">
@@ -144,17 +162,19 @@ export default function Roadmap() {
         ))}
       </div>
 
-      {/* シークバー（クリックで移動可能） */}
+      {/* ドラッグ可能なシークバー */}
       <div
         ref={barRef}
-        onClick={onSeek}
-        className="mt-3 h-2 rounded-full bg-gray-200 cursor-pointer select-none hover:bg-gray-300 transition-colors duration-200"
-        aria-label="クリックしてスクロール位置を移動"
+        onMouseDown={onBarDown}
+        className="mt-3 h-3 rounded-full bg-gray-200 cursor-pointer select-none hover:bg-gray-300 transition-colors duration-200 relative"
+        aria-label="ドラッグまたはクリックしてスクロール位置を移動"
       >
         <div
-          className="h-2 rounded-full bg-blue-600 transition-[width] duration-200"
+          className="h-3 rounded-full bg-blue-600 transition-[width] duration-100 pointer-events-none relative"
           style={{ width: `${Math.max(progress, 12.5)}%` }}
-        />
+        >
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-5 h-5 bg-blue-600 rounded-full border-2 border-white shadow-md hover:scale-110 transition-transform cursor-grab active:cursor-grabbing" />
+        </div>
       </div>
     </div>
   );
