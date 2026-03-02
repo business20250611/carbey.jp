@@ -1,26 +1,17 @@
 import React from 'react';
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FileText, Download, Car, Handshake, BarChart3, Settings } from 'lucide-react';
-import Modal from './Modal';
-import { toast } from "react-toastify";
+import { FileText, MessageSquare, Car, Handshake, BarChart3, Settings } from 'lucide-react';
 
 const Services: React.FC = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
-
-  const handleDownload = () => {
-    // ここに実際のダウンロード処理を実装
-    const link = document.createElement("a");
-    link.href = "/ホワイトペーパー.pdf";
-    link.download = "ホワイトペーパー.pdf";
-    link.click();
-    console.log('ホワイトペーパーをダウンロード中...');
-    setIsModalOpen(false);
-  };
 
   const handleContactClick = () => {
     navigate(`/contact?type=document&service=carbey&t=${Date.now()}`);
+    window.scrollTo(0, 0);
+  };
+
+  const handleInquiryClick = () => {
+    navigate(`/contact?t=${Date.now()}`);
     window.scrollTo(0, 0);
   };
 
@@ -200,38 +191,15 @@ const Services: React.FC = () => {
               <span>資料請求</span>
             </button>
             <button
-              onClick={() => setIsModalOpen(true)}
+              onClick={handleInquiryClick}
               className="bg-gray-100 text-gray-800 border border-gray-300 px-8 py-6 rounded-lg font-medium hover:bg-gray-200 transition-all duration-200 transform hover:scale-105 shadow-lg flex items-center justify-center space-x-2"
             >
-              <Download className="h-5 w-5" />
-              <span>ホワイトペーパー</span>
+              <MessageSquare className="h-5 w-5" />
+              <span>お問合せ</span>
             </button>
           </div>
         </div>
       </section>
-
-      <Modal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        title="ホワイトペーパーをダウンロードしますか？"
-      >
-        <div className="flex space-x-4 mt-6">
-          <button
-            onClick={handleDownload}
-            className="flex-1 bg-gray-800 text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-900 transition-colors duration-200"
-          >
-           
-              ダウンロード
-           
-          </button>
-          <button
-            onClick={() => setIsModalOpen(false)}
-            className="flex-1 bg-gray-200 text-gray-800 px-6 py-3 rounded-lg font-medium hover:bg-gray-300 transition-colors duration-200"
-          >
-            キャンセル
-          </button>
-        </div>
-      </Modal>
     </div>
   );
 };
