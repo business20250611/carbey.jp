@@ -130,7 +130,7 @@ const Contact: React.FC = () => {
 
         {/* Form Container */}
         <div className="bg-white rounded-2xl shadow-lg p-8 lg:p-12">
-          <p className="text-gray-700 mb-8 leading-relaxed">
+          <p className="text-gray-700 mb-8 leading-relaxed text-center">
             {isDocument && serviceType === 'eflow'
               ? 'E-Flowの詳細資料をご希望の方は、以下より必要事項をご入力ください。'
               : isDocument && serviceType === 'carbey'
