@@ -35,27 +35,27 @@ const Philosophy: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section 
+      <section
         className="relative py-20 lg:py-32 text-white"
         style={{
-          backgroundImage: 'url(https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg)',
+          backgroundImage: 'url(/ChatGPT_Image_2026年3月2日_13_12_52.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}
       >
-       <div className="absolute inset-0" style={{ backgroundColor: 'rgb(15 37 42 / 21%)' }}></div>
+       <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <h1 className="mb-4">
-            <span className="block text-4xl lg:text-5xl font-bold mb-4 font-bold " >
+            <span className="block text-4xl lg:text-5xl font-bold mb-4 font-bold text-white" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.6)' }}>
               PHILOSOPHY
             </span>
-            
-            <span className="block text-xl" >
+
+            <span className="block text-xl text-white" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.8)' }}>
               企業理念
             </span>
           </h1>
           <div className="w-16 h-0.5 bg-white mx-auto mb-12 mb-8 mt-6"></div>
-         
+
         </div>
       </section>
 
