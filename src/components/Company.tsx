@@ -49,22 +49,21 @@ const Company: React.FC = () => {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section
-        className="relative py-20 lg:py-32 text-white"
+        className="relative py-20 lg:py-28 text-white"
         style={{
-          backgroundImage: 'url(./img7.webp)',
+          backgroundImage: 'url(/ChatGPT_Image_2026年3月2日_13_01_30.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}
       >
-        
+
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <h1 className="text-4xl lg:text-5xl font-bold mb-4">
+          <h1 className="text-5xl lg:text-6xl font-bold mb-6 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.6)' }}>
             COMPANY
           </h1>
-          <p className="text-xl">
+          <p className="text-2xl mb-4 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.6)' }}>
             会社情報
           </p>
-          <div className="w-16 h-0.5 bg-white mx-auto mt-6"></div>
         </div>
       </section>
 
