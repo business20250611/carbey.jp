@@ -135,11 +135,11 @@ const Contact: React.FC = () => {
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* 会社名 - only show for contact forms */}
+            {/* 会社名 - only show for contact forms, optional */}
             {!isDocument && (
               <div>
                 <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
-                  会社名
+                  会社名(任意)
                 </label>
                 <input
                   type="text"
@@ -148,7 +148,6 @@ const Contact: React.FC = () => {
                   value={formData.company}
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                  required
                 />
               </div>
             )}
@@ -156,7 +155,7 @@ const Contact: React.FC = () => {
             {/* 氏名 */}
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                氏名
+                <span className="text-red-600">*</span>氏名
               </label>
               <input
                 type="text"
@@ -172,7 +171,7 @@ const Contact: React.FC = () => {
             {/* メールアドレス */}
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                メールアドレス
+                <span className="text-red-600">*</span>メールアドレス
               </label>
               <input
                 type="email"
@@ -188,7 +187,7 @@ const Contact: React.FC = () => {
             {/* 携帯電話 */}
             <div>
               <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                携帯電話
+                <span className="text-red-600">*</span>携帯電話
               </label>
               <input
                 type="text"
@@ -197,6 +196,7 @@ const Contact: React.FC = () => {
                 value={formData.phone}
                 onChange={handleChange}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                required
               />
             </div>
 
@@ -204,7 +204,7 @@ const Contact: React.FC = () => {
             {!isDocument && (
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  お問い合わせ内容
+                  <span className="text-red-600">*</span>お問い合わせ内容
                 </label>
                 <textarea
                   id="message"
