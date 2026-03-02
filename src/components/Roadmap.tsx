@@ -17,7 +17,7 @@ export default function Roadmap() {
   const barRef = useRef<HTMLDivElement>(null);
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(false);
-  const [scrollPercentage, setScrollPercentage] = useState(0); // 0-100
+  const [progress, setProgress] = useState(0); // 0-100
 
   // 初期スクロール位置を設定（現在のフェーズが見えるように）
   useEffect(() => {
@@ -40,11 +40,12 @@ export default function Roadmap() {
     if (!el) return;
     setCanPrev(el.scrollLeft > 0);
     setCanNext(el.scrollLeft + el.clientWidth < el.scrollWidth - 1);
-
-    // スクロール位置のパーセンテージを計算
+    
+    // プログレスバーの計算を改善
     const maxScroll = Math.max(1, el.scrollWidth - el.clientWidth);
-    const percentage = (el.scrollLeft / maxScroll) * 100;
-    setScrollPercentage(percentage);
+    const scrollPercentage = (el.scrollLeft / maxScroll) * 100;
+    // 最小値を設定してバーが見えるようにする
+    setProgress(Math.max(scrollPercentage, 8));
   };
 
   useEffect(() => {
@@ -96,27 +97,16 @@ export default function Roadmap() {
   // プログレスバーのドラッグ機能
   const barDragRef = useRef(false);
   const onBarDown = (e: React.MouseEvent) => {
-    e.preventDefault();
     barDragRef.current = true;
     onBarMove(e);
   };
   const onBarMove = (e: React.MouseEvent) => {
     if (!barDragRef.current) return;
-    e.preventDefault();
     const el = scroller.current;
     const bar = barRef.current;
     if (!el || !bar) return;
-
     const rect = bar.getBoundingClientRect();
-    const barWidth = 80; // 固定バー幅
-    const availableWidth = rect.width - barWidth;
-
-    // クリック位置からバーの左端位置を計算
-    let barLeft = e.clientX - rect.left - (barWidth / 2);
-    barLeft = Math.min(availableWidth, Math.max(0, barLeft));
-
-    // スクロール位置に変換
-    const ratio = barLeft / availableWidth;
+    const ratio = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
     const max = Math.max(0, el.scrollWidth - el.clientWidth);
     el.scrollLeft = max * ratio;
   };
@@ -179,15 +169,11 @@ export default function Roadmap() {
         className="mt-3 h-3 rounded-full bg-gray-200 cursor-pointer select-none hover:bg-gray-300 transition-colors duration-200 relative"
         aria-label="ドラッグまたはクリックしてスクロール位置を移動"
       >
-        {/* ドラッグバー: 固定幅で横移動する */}
         <div
-          className="absolute h-full rounded-full bg-blue-600 transition-[left] duration-100"
-          style={{
-            width: '80px',
-            left: `calc(${scrollPercentage}% * (100% - 80px) / 100)`
-          }}
+          className="h-3 rounded-full bg-blue-600 transition-[width] duration-100 pointer-events-none relative"
+          style={{ width: `${Math.max(progress, 12.5)}%` }}
         >
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-5 h-5 bg-blue-600 rounded-full border-2 border-white shadow-md hover:scale-110 transition-transform cursor-grab active:cursor-grabbing pointer-events-none" />
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-5 h-5 bg-blue-600 rounded-full border-2 border-white shadow-md hover:scale-110 transition-transform cursor-grab active:cursor-grabbing" />
         </div>
       </div>
     </div>
