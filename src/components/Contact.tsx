@@ -133,6 +133,8 @@ const Contact: React.FC = () => {
           <p className="text-gray-700 mb-8 leading-relaxed">
             {isDocument && serviceType === 'eflow'
               ? 'E-Flowの詳細資料をご希望の方は、以下より必要事項をご入力ください。'
+              : isDocument && serviceType === 'carbey'
+              ? 'Carbeyの詳細資料をご希望の方は、以下より必要事項をご入力ください。'
               : '資料に関するお問い合わせ・ビジネスのご相談・採用についてお気軽にお問い合わせください。'
             }
           </p>
