@@ -1,20 +1,7 @@
 import React from 'react';
-import { useState } from 'react';
 import { BarChart3 } from 'lucide-react';
-import Modal from './Modal';
 
 const WhatWeDo: React.FC = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [play, setPlay] = useState(false);
-  const handleDownload = () => {
-    // ここに実際のダウンロード処理を実装
-    const link = document.createElement("a");
-    link.href = "/ホワイトペーパー.pdf";
-    link.download = "ホワイトペーパー.pdf";
-    link.click();
-    console.log('ホワイトペーパーをダウンロード中...');
-    setIsModalOpen(false);
-  };
 
   return (
     <section id="what-we-do" className="py-20 lg:py-32 bg-gray-50">
@@ -56,13 +43,6 @@ const WhatWeDo: React.FC = () => {
             <p className="text-lg text-gray-700 leading-relaxed">
               Carbeyは自社開発のデータ分析×自動売買システムを掛け合わせたフランチャイズシステムによって、誰でも中古車販売事業に参画できる仕組みを提供しています。
             </p>
-
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="bg-slate-800 text-white px-8 py-3 rounded font-medium hover:bg-slate-900 transition-all duration-200"
-            >
-              ホワイトペーパーをダウンロード
-            </button>
           </div>
 
           {/* Right Icon Area */}
@@ -76,27 +56,6 @@ const WhatWeDo: React.FC = () => {
           </div>
         </div>
       </div>
-
-      <Modal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        title="ホワイトペーパーをダウンロードしますか？"
-      >
-        <div className="flex space-x-4 mt-6">
-          <button
-            onClick={handleDownload}
-            className="flex-1 bg-gray-800 text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-900 transition-colors duration-200"
-          >
-            ダウンロード
-          </button>
-          <button
-            onClick={() => setIsModalOpen(false)}
-            className="flex-1 bg-gray-200 text-gray-800 px-6 py-3 rounded-lg font-medium hover:bg-gray-300 transition-colors duration-200"
-          >
-            キャンセル
-          </button>
-        </div>
-      </Modal>
     </section>
   );
 };
