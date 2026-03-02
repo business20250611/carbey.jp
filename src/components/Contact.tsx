@@ -200,6 +200,23 @@ const Contact: React.FC = () => {
               />
             </div>
 
+            {/* 相談内容 - only show for document request forms (optional) */}
+            {isDocument && (
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  相談したいことがあればご記入ください（任意）
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={6}
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none"
+                />
+              </div>
+            )}
+
             {/* お問い合わせ内容 - only show for contact forms */}
             {!isDocument && (
               <div>
