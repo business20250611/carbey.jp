@@ -135,21 +135,23 @@ const Contact: React.FC = () => {
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* 会社名 */}
-            <div>
-              <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
-                会社名
-              </label>
-              <input
-                type="text"
-                id="company"
-                name="company"
-                value={formData.company}
-                onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                required
-              />
-            </div>
+            {/* 会社名 - only show for contact forms */}
+            {!isDocument && (
+              <div>
+                <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+                  会社名
+                </label>
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  value={formData.company}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                  required
+                />
+              </div>
+            )}
 
             {/* 氏名 */}
             <div>
@@ -198,21 +200,23 @@ const Contact: React.FC = () => {
               />
             </div>
 
-            {/* お問い合わせ内容 */}
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                お問い合わせ内容
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={6}
-                value={formData.message}
-                onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none"
-                required
-              />
-            </div>
+            {/* お問い合わせ内容 - only show for contact forms */}
+            {!isDocument && (
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  お問い合わせ内容
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={6}
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none"
+                  required
+                />
+              </div>
+            )}
 
             {/* プライバシーポリシー */}
             
