@@ -195,7 +195,7 @@ const Services: React.FC = () => {
               className="bg-gray-100 text-gray-800 border border-gray-300 px-8 py-6 rounded-lg font-medium hover:bg-gray-200 transition-all duration-200 transform hover:scale-105 shadow-lg flex items-center justify-center space-x-2"
             >
               <MessageSquare className="h-5 w-5" />
-              <span>お問合せ</span>
+              <span>お問い合せ</span>
             </button>
           </div>
         </div>
