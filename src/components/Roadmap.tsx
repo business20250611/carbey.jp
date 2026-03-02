@@ -96,16 +96,27 @@ export default function Roadmap() {
   // プログレスバーのドラッグ機能
   const barDragRef = useRef(false);
   const onBarDown = (e: React.MouseEvent) => {
+    e.preventDefault();
     barDragRef.current = true;
     onBarMove(e);
   };
   const onBarMove = (e: React.MouseEvent) => {
     if (!barDragRef.current) return;
+    e.preventDefault();
     const el = scroller.current;
     const bar = barRef.current;
     if (!el || !bar) return;
+
     const rect = bar.getBoundingClientRect();
-    const ratio = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
+    const barWidth = 80; // 固定バー幅
+    const availableWidth = rect.width - barWidth;
+
+    // クリック位置からバーの左端位置を計算
+    let barLeft = e.clientX - rect.left - (barWidth / 2);
+    barLeft = Math.min(availableWidth, Math.max(0, barLeft));
+
+    // スクロール位置に変換
+    const ratio = barLeft / availableWidth;
     const max = Math.max(0, el.scrollWidth - el.clientWidth);
     el.scrollLeft = max * ratio;
   };
@@ -170,13 +181,13 @@ export default function Roadmap() {
       >
         {/* ドラッグバー: 固定幅で横移動する */}
         <div
-          className="absolute h-full rounded-full bg-blue-600 transition-[left] duration-100 pointer-events-none"
+          className="absolute h-full rounded-full bg-blue-600 transition-[left] duration-100"
           style={{
             width: '80px',
             left: `calc(${scrollPercentage}% * (100% - 80px) / 100)`
           }}
         >
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-5 h-5 bg-blue-600 rounded-full border-2 border-white shadow-md hover:scale-110 transition-transform cursor-grab active:cursor-grabbing" />
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-5 h-5 bg-blue-600 rounded-full border-2 border-white shadow-md hover:scale-110 transition-transform cursor-grab active:cursor-grabbing pointer-events-none" />
         </div>
       </div>
     </div>
