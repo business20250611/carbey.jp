@@ -48,7 +48,7 @@ const Philosophy: React.FC = () => {
           <h1 className="text-4xl lg:text-5xl font-bold mb-4 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)] text-white" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.6)' }}>
             PHILOSOPHY
           </h1>
-          <p className="text-xl drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)] text-white" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.6)' }}>
+          <p className="text-xl text-white">
             企業理念
           </p>
         </div>
