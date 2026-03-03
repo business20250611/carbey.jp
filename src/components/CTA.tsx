@@ -27,9 +27,9 @@ const CTA: React.FC = () => {
             <h3 className="text-2xl font-bold mb-6">
               お問い合わせ
             </h3>
-            <button 
+            <button
               onClick={handleContactClick}
-              className="bg-gray-800 text-white px-8 py-3 rounded font-medium hover:bg-gray-900 transition-colors duration-200 flex items-center mx-auto"
+              className="bg-gray-800 text-white px-8 py-3 rounded font-medium hover:bg-gray-900 transition-colors duration-200 flex items-center justify-center mx-auto w-48"
             >
               こちらから
               <span className="ml-2">→</span>
@@ -46,9 +46,9 @@ const CTA: React.FC = () => {
             <h3 className="text-2xl font-bold mb-6">
               資料請求
             </h3>
-            <button 
+            <button
               onClick={handleDocumentClick}
-              className="bg-gray-800 text-white px-8 py-3 rounded font-medium hover:bg-gray-900 transition-colors duration-200 flex items-center mx-auto"
+              className="bg-gray-800 text-white px-8 py-3 rounded font-medium hover:bg-gray-900 transition-colors duration-200 flex items-center justify-center mx-auto w-48"
             >
               資料請求する
               <span className="ml-2">→</span>
