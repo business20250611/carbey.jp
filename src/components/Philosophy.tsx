@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Lightbulb, Users, Eye, Target, Heart, Compass, Globe2, TrendingUp } from 'lucide-react';
+import { Lightbulb, Users, Eye, Target, Heart, Compass, Globe as Globe2, TrendingUp } from 'lucide-react';
 import Roadmap from './Roadmap';
 
 const Philosophy: React.FC = () => {
