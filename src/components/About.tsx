@@ -5,15 +5,15 @@ const About: React.FC = () => {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section
-        className="relative py-20 lg:py-32 text-white"
+        className="relative py-20 lg:py-32 text-white flex items-center justify-center"
         style={{
           backgroundImage: 'url("/ChatGPT_Image_2026年3月2日_12_45_40.png")',
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}
       >
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
+
+        <div className="relative z-10 text-center">
           <h1 className="text-4xl lg:text-5xl font-bold mb-4 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)] text-white" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.6)' }}>
             ABOUT Carbey
           </h1>
