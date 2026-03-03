@@ -55,14 +55,14 @@ const Footer: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button
                 onClick={handleContactClick}
-                className="bg-[#1F2F4D] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#2A3F5F] transition-all duration-200 transform hover:scale-105 shadow-lg flex items-center space-x-2"
+                className="bg-[#1F2F4D] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#2A3F5F] transition-all duration-200 transform hover:scale-105 shadow-lg flex items-center justify-center space-x-2 w-56"
               >
                 <Mail className="h-5 w-5" />
-                <span>メールで問い合わせ</span>
+                <span>お問い合わせ</span>
               </button>
               <button
                 onClick={handleDocumentClick}
-                className="bg-red-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-red-700 transition-all duration-200 transform hover:scale-105 shadow-lg flex items-center space-x-2"
+                className="bg-red-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-red-700 transition-all duration-200 transform hover:scale-105 shadow-lg flex items-center justify-center space-x-2 w-56"
               >
                 <FileText className="h-5 w-5" />
                 <span>資料請求</span>
