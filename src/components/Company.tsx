@@ -49,7 +49,7 @@ const Company: React.FC = () => {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section
-        className="relative py-20 lg:py-32 text-white flex items-center justify-center"
+        className="relative min-h-[400px] flex items-center justify-center text-white"
         style={{
           backgroundImage: 'url(/ChatGPT_Image_2026年3月2日_13_01_30.png)',
           backgroundSize: 'cover',

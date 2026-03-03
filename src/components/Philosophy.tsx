@@ -36,7 +36,7 @@ const Philosophy: React.FC = () => {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section
-        className="relative py-20 lg:py-32 text-white"
+        className="relative min-h-[400px] flex items-center justify-center text-white"
         style={{
           backgroundImage: 'url("/ChatGPT_Image_2026年3月2日_13_12_52.png")',
           backgroundSize: 'cover',
@@ -44,7 +44,7 @@ const Philosophy: React.FC = () => {
         }}
       >
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
+        <div className="relative z-10 text-center">
           <h1 className="text-4xl lg:text-5xl font-bold mb-4 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)] text-white" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.6)' }}>
             PHILOSOPHY
           </h1>

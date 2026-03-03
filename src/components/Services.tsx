@@ -19,7 +19,7 @@ const Services: React.FC = () => {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section
-        className="py-20 lg:py-32 text-white relative flex items-center justify-center"
+        className="relative min-h-[400px] flex items-center justify-center text-white"
         style={{
           backgroundImage: 'url("/img2.webp")',
           backgroundSize: 'cover',
