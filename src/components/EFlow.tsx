@@ -67,7 +67,7 @@ const EFlow: React.FC = () => {
       </section>
 
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-28 overflow-hidden">
+      <section className="relative overflow-hidden flex items-center justify-center min-h-[400px] lg:min-h-[500px]">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{

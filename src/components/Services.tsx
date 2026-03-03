@@ -19,15 +19,16 @@ const Services: React.FC = () => {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section
-        className="relative min-h-[400px] flex items-center justify-center text-white"
+        className="text-white relative flex items-center justify-center min-h-[400px] lg:min-h-[500px]"
         style={{
           backgroundImage: 'url("/img2.webp")',
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}
       >
+        <div className="absolute inset-0 bg-black/30"></div>
 
-        <div className="relative z-10 text-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.6)' }}>
             BUSINESS
           </h1>
