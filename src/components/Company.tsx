@@ -56,19 +56,18 @@ const Company: React.FC = () => {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section
-        className="relative text-white flex items-center"
+        className="relative py-20 lg:py-32 text-white"
         style={{
           backgroundImage: imageLoaded ? 'url(/ChatGPT_Image_2026年3月2日_13_01_30.png)' : 'none',
           backgroundColor: imageLoaded ? 'transparent' : '#1a1a1a',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          transition: 'background-image 0.3s ease-in-out',
-          height: '200px'
+          transition: 'background-image 0.3s ease-in-out'
         }}
       >
         <div className="absolute inset-0 bg-black/40"></div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.6)' }}>
             COMPANY
           </h1>
