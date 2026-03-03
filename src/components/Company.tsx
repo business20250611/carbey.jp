@@ -2,12 +2,19 @@ import React, { useEffect } from 'react';
 import { MapPin, Calendar, Users, Building, Globe, Clock, DollarSign } from 'lucide-react';
 
 const Company: React.FC = () => {
+  const [imageLoaded, setImageLoaded] = React.useState(false);
+
   useEffect(() => {
     document.title = '会社情報 | Carbey';
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute('content', 'Carbey株式会社の会社概要・代表挨拶・事業内容をご紹介します。');
     }
+
+    // Preload background image
+    const img = new Image();
+    img.src = '/ChatGPT_Image_2026年3月2日_13_01_30.png';
+    img.onload = () => setImageLoaded(true);
   }, []);
 
   const companyData = [
@@ -51,9 +58,11 @@ const Company: React.FC = () => {
       <section
         className="relative py-20 lg:py-32 text-white"
         style={{
-          backgroundImage: 'url(/ChatGPT_Image_2026年3月2日_13_01_30.png)',
+          backgroundImage: imageLoaded ? 'url(/ChatGPT_Image_2026年3月2日_13_01_30.png)' : 'none',
+          backgroundColor: imageLoaded ? 'transparent' : '#1a1a1a',
           backgroundSize: 'cover',
-          backgroundPosition: 'center'
+          backgroundPosition: 'center',
+          transition: 'background-image 0.3s ease-in-out'
         }}
       >
         <div className="absolute inset-0 bg-black/40"></div>

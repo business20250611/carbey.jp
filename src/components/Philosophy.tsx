@@ -3,12 +3,19 @@ import { Lightbulb, Users, Eye, Target, Heart, Compass, Globe2, TrendingUp } fro
 import Roadmap from './Roadmap';
 
 const Philosophy: React.FC = () => {
+  const [imageLoaded, setImageLoaded] = React.useState(false);
+
   useEffect(() => {
     document.title = '企業理念 | Carbey';
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute('content', 'Carbeyの企業理念。革新的な考え方で中古車市場を変革し、誰でも車屋になれる未来を実現します。');
     }
+
+    // Preload background image
+    const img = new Image();
+    img.src = '/ChatGPT_Image_2026年3月2日_13_12_52.png';
+    img.onload = () => setImageLoaded(true);
   }, []);
 
   const principles = [
@@ -38,9 +45,11 @@ const Philosophy: React.FC = () => {
       <section
         className="relative py-20 lg:py-32 text-white"
         style={{
-          backgroundImage: 'url("/ChatGPT_Image_2026年3月2日_13_12_52.png")',
+          backgroundImage: imageLoaded ? 'url("/ChatGPT_Image_2026年3月2日_13_12_52.png")' : 'none',
+          backgroundColor: imageLoaded ? 'transparent' : '#1a1a1a',
           backgroundSize: 'cover',
-          backgroundPosition: 'center'
+          backgroundPosition: 'center',
+          transition: 'background-image 0.3s ease-in-out'
         }}
       >
 

@@ -1,16 +1,26 @@
 import React from 'react';
 
 const About: React.FC = () => {
+  const [imageLoaded, setImageLoaded] = React.useState(false);
+
+  React.useEffect(() => {
+    // Preload background image
+    const img = new Image();
+    img.src = '/ChatGPT_Image_2026年3月2日_12_45_40.png';
+    img.onload = () => setImageLoaded(true);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section
         className="relative py-20 lg:py-32 text-white"
         style={{
-          backgroundImage: 'url("/ChatGPT_Image_2026年3月2日_12_45_40.png")',
+          backgroundImage: imageLoaded ? 'url("/ChatGPT_Image_2026年3月2日_12_45_40.png")' : 'none',
+          backgroundColor: imageLoaded ? 'transparent' : '#1a1a1a',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          willChange: 'transform'
+          transition: 'background-image 0.3s ease-in-out'
         }}
       >
         

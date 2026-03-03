@@ -4,6 +4,14 @@ import { FileText, MessageSquare, Car, Handshake, BarChart3, Settings } from 'lu
 
 const Services: React.FC = () => {
   const navigate = useNavigate();
+  const [imageLoaded, setImageLoaded] = React.useState(false);
+
+  React.useEffect(() => {
+    // Preload background image
+    const img = new Image();
+    img.src = '/img2.webp';
+    img.onload = () => setImageLoaded(true);
+  }, []);
 
   const handleContactClick = () => {
     navigate(`/contact?type=document&service=carbey&t=${Date.now()}`);
@@ -21,10 +29,11 @@ const Services: React.FC = () => {
       <section
         className="py-20 lg:py-32 text-white relative"
         style={{
-          backgroundImage: 'url("/img2.webp")',
+          backgroundImage: imageLoaded ? 'url("/img2.webp")' : 'none',
+          backgroundColor: imageLoaded ? 'transparent' : '#1a1a1a',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          willChange: 'transform'
+          transition: 'background-image 0.3s ease-in-out'
         }}
       >
        
