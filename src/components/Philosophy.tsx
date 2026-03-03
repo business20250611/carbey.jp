@@ -43,7 +43,7 @@ const Philosophy: React.FC = () => {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section
-        className="relative py-20 lg:py-32 text-white"
+        className="relative py-20 lg:py-32 text-white flex items-center justify-center min-h-[400px]"
         style={{
           backgroundImage: imageLoaded ? 'url("/ChatGPT_Image_2026年3月2日_13_12_52.png")' : 'none',
           backgroundColor: imageLoaded ? 'transparent' : '#1a1a1a',

@@ -27,7 +27,7 @@ const Services: React.FC = () => {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section
-        className="py-20 lg:py-32 text-white relative"
+        className="py-20 lg:py-32 text-white relative flex items-center justify-center min-h-[400px]"
         style={{
           backgroundImage: imageLoaded ? 'url("/img2.webp")' : 'none',
           backgroundColor: imageLoaded ? 'transparent' : '#1a1a1a',
@@ -36,7 +36,7 @@ const Services: React.FC = () => {
           transition: 'background-image 0.3s ease-in-out'
         }}
       >
-       
+
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.6)' }}>
             BUSINESS
