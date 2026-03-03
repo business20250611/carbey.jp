@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
           poster="/img3.webp"
           className="w-full h-full object-cover"
           style={{

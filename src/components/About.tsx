@@ -9,7 +9,8 @@ const About: React.FC = () => {
         style={{
           backgroundImage: 'url("/ChatGPT_Image_2026年3月2日_12_45_40.png")',
           backgroundSize: 'cover',
-          backgroundPosition: 'center'
+          backgroundPosition: 'center',
+          willChange: 'transform'
         }}
       >
         
@@ -93,7 +94,8 @@ const About: React.FC = () => {
             style={{
               backgroundImage: 'url(https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg)',
               backgroundSize: 'cover',
-              backgroundPosition: 'center'
+              backgroundPosition: 'center',
+              willChange: 'transform'
             }}
           >
             <div
@@ -127,7 +129,8 @@ const About: React.FC = () => {
             style={{
               backgroundImage: 'url(https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg)',
               backgroundSize: 'cover',
-              backgroundPosition: 'center'
+              backgroundPosition: 'center',
+              willChange: 'transform'
             }}
           >
             <div
@@ -165,7 +168,8 @@ const About: React.FC = () => {
             style={{
               backgroundImage: 'url(https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg)',
               backgroundSize: 'cover',
-              backgroundPosition: 'center'
+              backgroundPosition: 'center',
+              willChange: 'transform'
             }}
           >
             <div

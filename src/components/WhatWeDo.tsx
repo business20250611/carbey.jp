@@ -14,9 +14,10 @@ const WhatWeDo: React.FC = () => {
         height="315"
         src="https://www.youtube.com/embed/QOnYdgb9kp4"
         title="YouTube video player"
-        frameborder="0"
+        frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
+        allowFullScreen
+        loading="lazy">
       </iframe>
      
     </div>
@@ -50,7 +51,7 @@ const WhatWeDo: React.FC = () => {
             <div className="w-80 h-48 border-2 border-gray-400 rounded-lg flex items-center justify-center bg-white">
               <div className="text-center w-[70%]">
                 {/* <BarChart3 className="w-16 h-16 text-gray-600 mx-auto mb-4" /> */}
-                <img src='./image-1.png' alt="Chart" />
+                <img src='./image-1.png' alt="Chart" loading="lazy" />
               </div>
             </div>
           </div>

@@ -23,7 +23,8 @@ const Services: React.FC = () => {
         style={{
           backgroundImage: 'url("/img2.webp")',
           backgroundSize: 'cover',
-          backgroundPosition: 'center'
+          backgroundPosition: 'center',
+          willChange: 'transform'
         }}
       >
        

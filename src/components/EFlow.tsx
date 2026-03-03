@@ -62,6 +62,7 @@ const EFlow: React.FC = () => {
             src="/eflow_transparent.png"
             alt="E-Flow Logo"
             className="h-12"
+            loading="eager"
           />
         </div>
       </section>
@@ -102,6 +103,7 @@ const EFlow: React.FC = () => {
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
+              loading="lazy"
               className="absolute inset-0 w-full h-full"
             ></iframe>
           </div>
@@ -128,6 +130,7 @@ const EFlow: React.FC = () => {
                 src="/SMmiO0Qt.jpg"
                 alt="E-Flowのスキーム図"
                 className="relative w-full rounded-xl shadow-2xl"
+                loading="lazy"
               />
             </div>
           </div>
