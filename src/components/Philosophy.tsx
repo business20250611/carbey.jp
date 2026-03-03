@@ -43,17 +43,18 @@ const Philosophy: React.FC = () => {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section
-        className="relative h-[400px] lg:h-[500px] text-white flex items-end"
+        className="relative text-white lg:py-32"
         style={{
           backgroundImage: imageLoaded ? 'url("/ChatGPT_Image_2026年3月2日_13_12_52.png")' : 'none',
           backgroundColor: imageLoaded ? 'transparent' : '#1a1a1a',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          transition: 'background-image 0.3s ease-in-out'
+          transition: 'background-image 0.3s ease-in-out',
+          height: '200px'
         }}
       >
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 text-center pb-16">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center h-full flex flex-col items-center justify-center">
           <h1 className="text-4xl lg:text-5xl font-bold mb-4 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)] text-white" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.6)' }}>
             PHILOSOPHY
           </h1>
