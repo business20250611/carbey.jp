@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 
 const slides = [
   {
-    video: 'https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_30fps.mp4',
+    video: 'https://videos.pexels.com/video-files/8486951/8486951-uhd_2560_1440_25fps.mp4',
     title: 'カーベイ株式会社',
     subtitle: '儲かる車屋をみんなの手に。'
   },
   {
-    video: 'https://videos.pexels.com/video-files/6894128/6894128-uhd_2560_1440_24fps.mp4',
+    video: 'https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_30fps.mp4',
     title: '自動車業界のDX革命',
     subtitle: '在庫管理から販売まで、すべてをデジタル化'
   },
   {
-    video: 'https://videos.pexels.com/video-files/4609281/4609281-uhd_2560_1440_25fps.mp4',
+    video: 'https://videos.pexels.com/video-files/6894128/6894128-uhd_2560_1440_24fps.mp4',
     title: 'E-Flow で業務効率化',
     subtitle: '中古車販売の未来を創造するプラットフォーム'
   }
@@ -21,17 +21,35 @@ const slides = [
 
 const Hero: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const touchStartX = useRef<number>(0);
+  const touchEndX = useRef<number>(0);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current - touchEndX.current > 75) {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 6000);
-
-    return () => clearInterval(interval);
-  }, []);
+    }
+    if (touchEndX.current - touchStartX.current > 75) {
+      setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    }
+  };
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section
+      ref={containerRef}
+      className="relative h-screen flex items-center justify-center overflow-hidden"
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
       {/* Video Slides */}
       {slides.map((slide, index) => (
         <div
@@ -48,17 +66,17 @@ const Hero: React.FC = () => {
             preload="auto"
             className="w-full h-full object-cover"
             style={{
-              filter: 'brightness(1.1) contrast(1.05)'
+              filter: 'brightness(0.95) contrast(1.1) saturate(1.05)'
             }}
           >
             <source src={slide.video} type="video/mp4" />
           </video>
 
-          {/* Dark Gradient Overlay */}
+          {/* Cinematic Gradient Overlay */}
           <div
             className="absolute inset-0"
             style={{
-              background: 'linear-gradient(180deg, rgba(10,15,25,0.45) 0%, rgba(10,15,25,0.35) 50%, rgba(10,15,25,0.45) 100%)'
+              background: 'linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.6) 100%)'
             }}
           ></div>
         </div>
@@ -105,15 +123,15 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Status Dots */}
-      <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 z-20 flex gap-3">
+      <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 z-20 flex gap-4">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`transition-all duration-300 rounded-full ${
+            className={`transition-all duration-500 ease-out rounded-full backdrop-blur-sm ${
               index === currentSlide
-                ? 'w-10 h-3 bg-white'
-                : 'w-3 h-3 bg-white/50 hover:bg-white/70'
+                ? 'w-12 h-3 bg-white shadow-lg shadow-white/30'
+                : 'w-3 h-3 bg-white/40 hover:bg-white/60 hover:scale-125'
             }`}
             aria-label={`スライド ${index + 1} に移動`}
           />
