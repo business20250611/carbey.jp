@@ -3,19 +3,19 @@ import { ChevronDown } from 'lucide-react';
 
 const slides = [
   {
-    video: 'https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_30fps.mp4',
+    video: 'https://videos.pexels.com/video-files/4609281/4609281-uhd_2560_1440_25fps.mp4',
     poster: '/img3.webp',
     title: 'カーベイ株式会社',
     subtitle: '儲かる車屋をみんなの手に。'
   },
   {
-    video: 'https://videos.pexels.com/video-files/3209828/3209828-hd_1920_1080_25fps.mp4',
+    video: 'https://videos.pexels.com/video-files/5359531/5359531-uhd_2560_1440_25fps.mp4',
     poster: '/img1.webp',
     title: '自動車業界のDX革命',
     subtitle: '在庫管理から販売まで、すべてをデジタル化'
   },
   {
-    video: 'https://videos.pexels.com/video-files/4753879/4753879-uhd_2560_1440_24fps.mp4',
+    video: 'https://videos.pexels.com/video-files/6894128/6894128-uhd_2560_1440_24fps.mp4',
     poster: '/img2.webp',
     title: 'E-Flow で業務効率化',
     subtitle: '中古車販売の未来を創造するプラットフォーム'
