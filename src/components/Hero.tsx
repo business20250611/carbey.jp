@@ -3,20 +3,17 @@ import { ChevronDown } from 'lucide-react';
 
 const slides = [
   {
-    video: 'https://videos.pexels.com/video-files/4609281/4609281-uhd_2560_1440_25fps.mp4',
-    poster: '/img3.webp',
+    video: 'https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_30fps.mp4',
     title: 'カーベイ株式会社',
     subtitle: '儲かる車屋をみんなの手に。'
   },
   {
-    video: 'https://videos.pexels.com/video-files/5359531/5359531-uhd_2560_1440_25fps.mp4',
-    poster: '/img1.webp',
+    video: 'https://videos.pexels.com/video-files/6894128/6894128-uhd_2560_1440_24fps.mp4',
     title: '自動車業界のDX革命',
     subtitle: '在庫管理から販売まで、すべてをデジタル化'
   },
   {
-    video: 'https://videos.pexels.com/video-files/6894128/6894128-uhd_2560_1440_24fps.mp4',
-    poster: '/img2.webp',
+    video: 'https://videos.pexels.com/video-files/4609281/4609281-uhd_2560_1440_25fps.mp4',
     title: 'E-Flow で業務効率化',
     subtitle: '中古車販売の未来を創造するプラットフォーム'
   }
@@ -49,7 +46,6 @@ const Hero: React.FC = () => {
             loop
             playsInline
             preload="auto"
-            poster={slide.poster}
             className="w-full h-full object-cover"
             style={{
               filter: 'brightness(1.1) contrast(1.05)'
