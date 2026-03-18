@@ -3,7 +3,7 @@ import { ChevronDown } from 'lucide-react';
 
 const slides = [
   {
-    video: 'https://media.istockphoto.com/id/2188642564/video/a-car-salesman-recommends-a-campaign-promotion-to-customers-on-installments-and-titles-with.jpg?b=1&s=640x640&k=20&c=u-Qz-dsD0NwPckPO8PhN01pySXRX4RLgNlCIWR5bOQQ=',
+    video:'https://media.istockphoto.com/id/2227377276/ja/%E3%83%93%E3%83%87%E3%82%AA/%E8%87%AA%E5%8B%95%E8%BB%8A%E4%BF%9D%E9%99%BA%E3%81%AE%E6%9B%B8%E9%A1%9E%E3%82%84%E3%83%AC%E3%83%B3%E3%82%BF%E3%83%AB%E3%81%AE%E3%82%B3%E3%83%B3%E3%82%BB%E3%83%97%E3%83%88%E8%87%AA%E5%8B%95%E8%BB%8A%E3%83%96%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%BC%E3%81%AF%E9%A1%A7%E5%AE%A2%E3%82%92%E6%94%AF%E6%8F%B4%E3%81%97%E8%BB%8A%E8%87%AA%E5%8B%95%E8%BB%8A%E4%BA%8B%E6%95%85%E9%81%93%E8%B7%AF%E4%B8%8A%E3%81%AE%E5%8D%B1%E9%99%BA%E3%81%AA%E7%8A%B6%E6%B3%81%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E9%80%A3%E7%B5%A1%E5%85%88%E3%81%AE%E8%A9%B3%E7%B4%B0%E3%82%92%E8%AA%AC%E6%98%8E%E3%81%97%E3%81%BE%E3%81%99.mp4?s=mp4-640x640-is&k=20&c=HvqNrLWVUAQogjqYhJCB6OP6Ub7Qe5Gf-fV8_xjAv-c=',
     title: 'カーベイ株式会社',
     subtitle: '儲かる車屋をみんなの手に。'
   },
