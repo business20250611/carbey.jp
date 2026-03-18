@@ -3,29 +3,35 @@ import { ChevronDown } from 'lucide-react';
 
 const slides = [
   {
-    video: 'https://videos.pexels.com/video-files/2169880/2169880-uhd_3840_2160_25fps.mp4',
+    video: 'https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_30fps.mp4',
     poster: '/img3.webp',
     title: 'カーベイ株式会社',
     subtitle: '儲かる車屋をみんなの手に。'
   },
   {
-    video: 'https://videos.pexels.com/video-files/3195394/3195394-uhd_3840_2160_25fps.mp4',
+    video: 'https://videos.pexels.com/video-files/3209828/3209828-hd_1920_1080_25fps.mp4',
     poster: '/img1.webp',
-    title: 'デジタル変革を実現',
-    subtitle: '最先端のテクノロジーで業界をリード'
+    title: '自動車業界のDX革命',
+    subtitle: '在庫管理から販売まで、すべてをデジタル化'
   },
   {
-    video: 'https://videos.pexels.com/video-files/3130284/3130284-uhd_3840_2160_30fps.mp4',
+    video: 'https://videos.pexels.com/video-files/4753879/4753879-uhd_2560_1440_24fps.mp4',
     poster: '/img2.webp',
-    title: '未来への挑戦',
-    subtitle: 'イノベーションで新しい価値を創造'
+    title: 'E-Flow で業務効率化',
+    subtitle: '中古車販売の未来を創造するプラットフォーム'
   }
 ];
 
 const Hero: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
- 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 6000);
+
+    return () => clearInterval(interval);
+  }, [currentSlide]);
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
