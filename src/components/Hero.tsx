@@ -25,13 +25,7 @@ const slides = [
 const Hero: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 6000);
-
-    return () => clearInterval(interval);
-  }, [currentSlide]);
+ 
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
