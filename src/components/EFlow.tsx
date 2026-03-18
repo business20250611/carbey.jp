@@ -56,7 +56,7 @@ const EFlow: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Header Logo Section */}
-      <section className="bg-white py-8 border-b border-gray-100">
+      <section className="bg-white  border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 flex justify-center">
           <img
             src="/eflow_transparent.png"
