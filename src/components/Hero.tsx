@@ -49,6 +49,7 @@ const Hero: React.FC = () => {
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
+      style={{marginTop:'9vh ! important'}}
     >
       {/* Video Slides */}
       {slides.map((slide, index) => (
