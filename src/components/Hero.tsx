@@ -13,7 +13,7 @@ const slides = [
     subtitle: '在庫管理から販売まで、すべてをデジタル化'
   },
   {
-    video: 'https://videos.pexels.com/video-files/6894128/6894128-uhd_2560_1440_24fps.mp4',
+    video:'https://media.istockphoto.com/id/2227383425/ja/%E3%83%93%E3%83%87%E3%82%AA/%E8%8B%A5%E3%81%84%E3%82%A2%E3%82%B8%E3%82%A2%E4%BA%BA%E5%A5%B3%E6%80%A7%E3%81%A8%E4%BF%9D%E9%99%BA%E4%BB%A3%E7%90%86%E5%BA%97%E3%81%8C%E8%BB%8A%E3%81%AE%E6%90%8D%E5%82%B7%E3%81%A8%E8%AB%8B%E6%B1%82%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E8%A9%B1%E3%81%97%E5%90%88%E3%81%86%E4%BA%8B%E6%95%85%E7%8F%BE%E5%A0%B4%E3%81%A7%E8%87%AA%E5%8B%95%E8%BB%8A%E4%BF%9D%E9%99%BA%E9%87%91%E8%AB%8B%E6%B1%82%E6%9B%B8%E3%81%AB%E7%BD%B2%E5%90%8D%E3%81%97%E7%94%B7%E6%80%A7%E6%8D%9C%E6%9F%BB%E5%AE%98%E3%81%A8%E6%8F%A1%E6%89%8B%E3%81%99%E3%82%8B%E8%8B%A5%E3%81%84%E5%A5%B3%E6%80%A7.mp4?s=mp4-640x640-is&k=20&c=qVlNIC2CKUPU7exBSg07u5J1i_IZoQFlpyklYxgBHv0=',
     title: 'E-Flow で業務効率化',
     subtitle: '中古車販売の未来を創造するプラットフォーム'
   }
