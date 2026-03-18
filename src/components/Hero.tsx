@@ -31,7 +31,7 @@ const Hero: React.FC = () => {
     }, 6000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [currentSlide]);
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
