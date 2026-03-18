@@ -3,7 +3,7 @@ import { ChevronDown } from 'lucide-react';
 
 const slides = [
   {
-    video: 'https://videos.pexels.com/video-files/8486951/8486951-uhd_2560_1440_25fps.mp4https://media.istockphoto.com/id/2188642564/video/a-car-salesman-recommends-a-campaign-promotion-to-customers-on-installments-and-titles-with.jpg?b=1&s=640x640&k=20&c=u-Qz-dsD0NwPckPO8PhN01pySXRX4RLgNlCIWR5bOQQ=',
+    video: 'https://media.istockphoto.com/id/2188642564/video/a-car-salesman-recommends-a-campaign-promotion-to-customers-on-installments-and-titles-with.jpg?b=1&s=640x640&k=20&c=u-Qz-dsD0NwPckPO8PhN01pySXRX4RLgNlCIWR5bOQQ=',
     title: 'カーベイ株式会社',
     subtitle: '儲かる車屋をみんなの手に。'
   },
