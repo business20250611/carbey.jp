@@ -17,7 +17,6 @@ import LegalNotice from './components/LegalNotice';
 import NewsDetail from './components/NewsDetail';
 import EFlow from './components/EFlow';
 import DocumentSelect from './components/DocumentSelect';
-
 const HomePage = () => (
   <>
     <Hero />
