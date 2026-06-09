@@ -1,179 +1,251 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { ChevronDown } from 'lucide-react';
-
-const slides = [
-  {
-    video:'https://media.istockphoto.com/id/2227377276/ja/%E3%83%93%E3%83%87%E3%82%AA/%E8%87%AA%E5%8B%95%E8%BB%8A%E4%BF%9D%E9%99%BA%E3%81%AE%E6%9B%B8%E9%A1%9E%E3%82%84%E3%83%AC%E3%83%B3%E3%82%BF%E3%83%AB%E3%81%AE%E3%82%B3%E3%83%B3%E3%82%BB%E3%83%97%E3%83%88%E8%87%AA%E5%8B%95%E8%BB%8A%E3%83%96%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%BC%E3%81%AF%E9%A1%A7%E5%AE%A2%E3%82%92%E6%94%AF%E6%8F%B4%E3%81%97%E8%BB%8A%E8%87%AA%E5%8B%95%E8%BB%8A%E4%BA%8B%E6%95%85%E9%81%93%E8%B7%AF%E4%B8%8A%E3%81%AE%E5%8D%B1%E9%99%BA%E3%81%AA%E7%8A%B6%E6%B3%81%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E9%80%A3%E7%B5%A1%E5%85%88%E3%81%AE%E8%A9%B3%E7%B4%B0%E3%82%92%E8%AA%AC%E6%98%8E%E3%81%97%E3%81%BE%E3%81%99.mp4?s=mp4-640x640-is&k=20&c=HvqNrLWVUAQogjqYhJCB6OP6Ub7Qe5Gf-fV8_xjAv-c=',
-    title: 'カーベイ株式会社',
-    subtitle: '儲かる車屋をみんなの手に。'
-  },
-  {
-    video: 'https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_30fps.mp4',
-    title: '自動車業界のDX革命',
-    subtitle: '在庫管理から販売まで、すべてをデジタル化'
-  },
-  {
-    video:'https://media.istockphoto.com/id/2227383425/ja/%E3%83%93%E3%83%87%E3%82%AA/%E8%8B%A5%E3%81%84%E3%82%A2%E3%82%B8%E3%82%A2%E4%BA%BA%E5%A5%B3%E6%80%A7%E3%81%A8%E4%BF%9D%E9%99%BA%E4%BB%A3%E7%90%86%E5%BA%97%E3%81%8C%E8%BB%8A%E3%81%AE%E6%90%8D%E5%82%B7%E3%81%A8%E8%AB%8B%E6%B1%82%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E8%A9%B1%E3%81%97%E5%90%88%E3%81%86%E4%BA%8B%E6%95%85%E7%8F%BE%E5%A0%B4%E3%81%A7%E8%87%AA%E5%8B%95%E8%BB%8A%E4%BF%9D%E9%99%BA%E9%87%91%E8%AB%8B%E6%B1%82%E6%9B%B8%E3%81%AB%E7%BD%B2%E5%90%8D%E3%81%97%E7%94%B7%E6%80%A7%E6%8D%9C%E6%9F%BB%E5%AE%98%E3%81%A8%E6%8F%A1%E6%89%8B%E3%81%99%E3%82%8B%E8%8B%A5%E3%81%84%E5%A5%B3%E6%80%A7.mp4?s=mp4-640x640-is&k=20&c=qVlNIC2CKUPU7exBSg07u5J1i_IZoQFlpyklYxgBHv0=',
-    title: 'E-Flow で業務効率化',
-    subtitle: '中古車販売の未来を創造するプラットフォーム'
-  }
-];
+import React, { useEffect, useRef } from 'react';
+import { ChevronDown, ArrowRight } from 'lucide-react';
 
 const Hero: React.FC = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const touchStartX = useRef<number>(0);
-  const touchEndX = useRef<number>(0);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.touches[0].clientX;
-  };
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
 
-  const handleTouchMove = (e: React.TouchEvent) => {
-    touchEndX.current = e.touches[0].clientX;
-  };
+    let animationId: number;
+    let particles: { x: number; y: number; vx: number; vy: number; size: number; opacity: number }[] = [];
 
-  const handleTouchEnd = () => {
-    if (touchStartX.current - touchEndX.current > 75) {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    const resize = () => {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    };
+    resize();
+    window.addEventListener('resize', resize);
+
+    for (let i = 0; i < 60; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        size: Math.random() * 1.5 + 0.5,
+        opacity: Math.random() * 0.4 + 0.1,
+      });
     }
-    if (touchEndX.current - touchStartX.current > 75) {
-      setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-    }
+
+    const draw = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach((p) => {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${p.opacity})`;
+        ctx.fill();
+      });
+      animationId = requestAnimationFrame(draw);
+    };
+    draw();
+
+    return () => {
+      cancelAnimationFrame(animationId);
+      window.removeEventListener('resize', resize);
+    };
+  }, []);
+
+  const scrollDown = () => {
+    window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
   };
 
   return (
-    <section
-      ref={containerRef}
-      className="relative h-screen flex items-center justify-center overflow-hidden"
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
-      onTouchEnd={handleTouchEnd}
-     
-    >
-      {/* Video Slides */}
-      {slides.map((slide, index) => (
-        <div
-          key={index}
-          className={`absolute inset-0 z-0 transition-opacity duration-1000 ${
-            index === currentSlide ? 'opacity-100' : 'opacity-0'
-          }`}
-        >
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            className="w-full h-full object-cover"
-            style={{
-              filter: 'brightness(0.95) contrast(1.1) saturate(1.05)'
-            }}
-          >
-            <source src={slide.video} type="video/mp4" />
-          </video>
-
-          {/* Cinematic Gradient Overlay */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background: 'linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.6) 100%)'
-            }}
-          ></div>
-        </div>
-      ))}
-
-      {/* Content Container */}
-      <div className="relative z-10 text-center text-white max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="space-y-8 lg:space-y-12">
-          {slides.map((slide, index) => (
-            <div
-              key={index}
-              className={`transition-opacity duration-1000 ${
-                index === currentSlide ? 'opacity-100' : 'opacity-0 absolute inset-0 flex flex-col items-center justify-center'
-              }`}
-            >
-              {/* Main Heading */}
-              <h1
-                className="font-bold leading-tight tracking-tight"
-                style={{
-                  fontSize: 'clamp(2.5rem, 8vw, 5rem)',
-                  fontFamily: '"Noto Sans JP", sans-serif',
-                  fontWeight: 700,
-                  letterSpacing: '-0.02em'
-                }}
-              >
-                {slide.title}
-              </h1>
-
-              {/* Subtitle */}
-              <p
-                className="font-medium leading-relaxed max-w-3xl mx-auto mt-8 lg:mt-12"
-                style={{
-                  fontSize: 'clamp(1.25rem, 4vw, 2rem)',
-                  fontFamily: '"Noto Sans JP", sans-serif',
-                  fontWeight: 500,
-                  letterSpacing: '0.01em'
-                }}
-              >
-                {slide.subtitle}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Status Dots */}
-      <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 z-20 flex gap-4">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentSlide(index)}
-            className={`transition-all duration-500 ease-out rounded-full backdrop-blur-sm ${
-              index === currentSlide
-                ? 'w-12 h-3 bg-white shadow-lg shadow-white/30'
-                : 'w-3 h-3 bg-white/40 hover:bg-white/60 hover:scale-125'
-            }`}
-            aria-label={`スライド ${index + 1} に移動`}
-          />
-        ))}
-      </div>
-
-      {/* Scroll Indicator */}
+    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      {/* Background layers */}
       <div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/80 animate-bounce cursor-pointer z-20"
-        onClick={() => {
-          window.scrollTo({
-            top: window.innerHeight,
-            behavior: 'smooth'
-          });
+        className="absolute inset-0 z-0"
+        style={{
+          background: 'linear-gradient(135deg, #0d1b2e 0%, #1F2F4D 45%, #162340 100%)',
         }}
+      />
+
+      {/* Red geometric accent */}
+      <div
+        className="absolute z-0"
+        style={{
+          top: '-10%',
+          right: '-5%',
+          width: '55%',
+          height: '110%',
+          background: 'linear-gradient(145deg, #c0392b 0%, #e74c3c 50%, #c0392b 100%)',
+          clipPath: 'polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%)',
+          opacity: 0.92,
+        }}
+      />
+
+      {/* Secondary accent stripe */}
+      <div
+        className="absolute z-0"
+        style={{
+          top: '0',
+          right: '44%',
+          width: '4px',
+          height: '100%',
+          background: 'linear-gradient(180deg, transparent, rgba(255,255,255,0.15), transparent)',
+        }}
+      />
+
+      {/* Particle canvas */}
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 z-0 w-full h-full"
+        style={{ mixBlendMode: 'screen' }}
+      />
+
+      {/* Dark vignette on red side */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          background: 'radial-gradient(ellipse at 80% 50%, transparent 30%, rgba(0,0,0,0.25) 100%)',
+        }}
+      />
+
+      {/* Content */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+        <div className="flex flex-col lg:flex-row items-center lg:items-center gap-12 lg:gap-0">
+
+          {/* Left: Text block */}
+          <div className="flex-1 text-white space-y-8 lg:pr-8">
+            {/* Eyebrow */}
+            <div className="flex items-center gap-3">
+              <span
+                className="inline-block h-px w-12 bg-red-400"
+              />
+              <span
+                className="text-red-300 text-sm font-semibold tracking-widest uppercase"
+                style={{ fontFamily: '"Noto Sans JP", sans-serif', letterSpacing: '0.2em' }}
+              >
+                Carbay Inc.
+              </span>
+            </div>
+
+            {/* Main headline */}
+            <h1
+              className="font-black leading-tight"
+              style={{
+                fontFamily: '"Noto Sans JP", sans-serif',
+                fontSize: 'clamp(2.4rem, 6vw, 4.2rem)',
+                fontWeight: 900,
+                letterSpacing: '-0.02em',
+                lineHeight: 1.15,
+              }}
+            >
+              儲かる車屋を<br />
+              <span className="text-red-400">みんなの手に。</span>
+            </h1>
+
+            {/* Sub copy */}
+            <p
+              className="text-white/75 leading-relaxed max-w-lg"
+              style={{
+                fontFamily: '"Noto Sans JP", sans-serif',
+                fontSize: 'clamp(1rem, 2.2vw, 1.2rem)',
+                fontWeight: 400,
+                lineHeight: 1.9,
+              }}
+            >
+              自動車業界のDX革命を牽引する<br />
+              カーベイ株式会社のE-Flowで、<br />
+              在庫管理から販売まですべてを変える。
+            </p>
+
+            {/* CTA buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 pt-2">
+              <button
+                onClick={() => {
+                  const el = document.getElementById('contact');
+                  el?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="group flex items-center justify-center gap-2 bg-white text-[#1F2F4D] px-8 py-4 rounded-lg font-bold text-base hover:bg-red-50 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105"
+                style={{ fontFamily: '"Noto Sans JP", sans-serif' }}
+              >
+                お問い合わせ
+                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
+              </button>
+              <button
+                onClick={() => {
+                  const el = document.getElementById('services');
+                  el?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="flex items-center justify-center gap-2 border-2 border-white/40 text-white px-8 py-4 rounded-lg font-semibold text-base hover:border-white hover:bg-white/10 transition-all duration-300 backdrop-blur-sm"
+                style={{ fontFamily: '"Noto Sans JP", sans-serif' }}
+              >
+                サービスを見る
+              </button>
+            </div>
+          </div>
+
+          {/* Right: Visual card */}
+          <div className="flex-shrink-0 w-full lg:w-auto flex justify-center lg:justify-end">
+            <div
+              className="relative"
+              style={{ width: 'clamp(260px, 35vw, 460px)' }}
+            >
+              {/* Card background */}
+              <div
+                className="rounded-2xl overflow-hidden shadow-2xl"
+                style={{
+                  background: 'rgba(255,255,255,0.07)',
+                  backdropFilter: 'blur(12px)',
+                  border: '1px solid rgba(255,255,255,0.15)',
+                }}
+              >
+                <img
+                  src="/miura_1200.png"
+                  alt="ACCEL JAPAN アンバサダー 三浦翔平"
+                  className="w-full object-cover"
+                  style={{ aspectRatio: '3/2' }}
+                />
+              </div>
+
+              {/* Floating badge */}
+              <div
+                className="absolute -bottom-5 -left-5 bg-white rounded-xl px-5 py-3 shadow-2xl"
+                style={{ minWidth: '160px' }}
+              >
+                <p
+                  className="text-xs text-gray-500 font-medium"
+                  style={{ fontFamily: '"Noto Sans JP", sans-serif', letterSpacing: '0.05em' }}
+                >
+                  アンバサダー
+                </p>
+                <p
+                  className="text-[#1F2F4D] font-bold text-base"
+                  style={{ fontFamily: '"Noto Sans JP", sans-serif' }}
+                >
+                  三浦 翔平
+                </p>
+              </div>
+
+              {/* Decorative ring */}
+              <div
+                className="absolute -top-4 -right-4 w-20 h-20 rounded-full border-4 border-red-400/30"
+              />
+              <div
+                className="absolute -top-2 -right-2 w-10 h-10 rounded-full bg-red-500/20"
+              />
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <button
+        onClick={scrollDown}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60 hover:text-white transition-colors duration-200 animate-bounce z-20"
         aria-label="下にスクロール"
-        role="button"
-        tabIndex={0}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            window.scrollTo({
-              top: window.innerHeight,
-              behavior: 'smooth'
-            });
-          }
-        }}
       >
         <ChevronDown className="h-8 w-8" />
-      </div>
-
-      {/* Reduced Motion Support */}
-      <style>{`
-        @media (prefers-reduced-motion: reduce) {
-          video {
-            display: none;
-          }
-          .animate-bounce {
-            animation: none;
-          }
-        }
-      `}</style>
+      </button>
     </section>
   );
 };
