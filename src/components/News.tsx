@@ -5,11 +5,18 @@ import { Link } from 'react-router-dom';
 const News: React.FC = () => {
   const newsItems = [
     {
+      id: 'economy-plan-launch-2026',
+      date: '2026.06.02',
+      category: 'お知らせ',
+      title: 'Carbey自動売買システム「エコノミープラン」ローンチのお知らせ',
+      isNew: true
+    },
+    {
       id: 'support-enhancement-2026',
       date: '2026.01.20',
       category: 'お知らせ',
       title: 'サポート体制強化のお知らせ',
-      isNew: true
+      isNew: false
     },
     {
       id: 'service-launch',

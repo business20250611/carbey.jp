@@ -11,6 +11,17 @@ interface NewsArticle {
 }
 
 const newsArticles: Record<string, NewsArticle> = {
+  'economy-plan-launch-2026': {
+    id: 'economy-plan-launch-2026',
+    date: '2026.06.02',
+    category: 'お知らせ',
+    title: 'Carbey自動売買システム「エコノミープラン」ローンチのお知らせ',
+    content: `このたび、Carbey自動売買システムでは、より低コストで中古車ビジネスに参入できる「エコノミープラン」を新たにローンチいたしました。
+
+「誰でも車屋になれる」というCarbeyの理念のもと、開業時のハードルを下げ、未経験の方でも始めやすいプランとして提供いたします。
+
+今後もCarbeyは、中古車ビジネスをより身近に、より挑戦しやすい選択肢として広げてまいります。`
+  },
   'support-enhancement-2026': {
     id: 'support-enhancement-2026',
     date: '2026.01.20',
