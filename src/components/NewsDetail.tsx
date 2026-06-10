@@ -29,11 +29,11 @@ const NewsDetail: React.FC = () => {
     <div className="min-h-screen bg-gray-50 py-20 lg:py-32">
       <div className="max-w-4xl mx-auto px-6 lg:px-8">
         <Link
-          to="/news"
+          to="/#news"
           className="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors duration-200 mb-8"
         >
           <ArrowLeft className="h-4 w-4 mr-2" />
-          お知らせ一覧に戻る
+          お知らせに戻る
         </Link>
 
         <article className="bg-white rounded-2xl shadow-lg overflow-hidden">
@@ -65,11 +65,11 @@ const NewsDetail: React.FC = () => {
 
         <div className="mt-12 text-center">
           <Link
-            to="/news"
+            to="/#news"
             className="inline-flex items-center justify-center px-8 py-4 bg-gray-900 text-white rounded-full hover:bg-gray-800 transition-all duration-200 shadow-lg hover:shadow-xl"
           >
             <ArrowLeft className="h-5 w-5 mr-2" />
-            お知らせ一覧に戻る
+            お知らせに戻る
           </Link>
         </div>
       </div>
