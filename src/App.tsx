@@ -15,6 +15,7 @@ import Company from './components/Company';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import LegalNotice from './components/LegalNotice';
 import NewsDetail from './components/NewsDetail';
+import NewsList from './components/NewsList';
 import EFlow from './components/EFlow';
 import DocumentSelect from './components/DocumentSelect';
 const HomePage = () => (
@@ -62,6 +63,7 @@ function App() {
           <Route path="/company" element={<Company />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/legal-notice" element={<LegalNotice />} />
+          <Route path="/news" element={<NewsList />} />
           <Route path="/news/:id" element={<NewsDetail />} />
 
         </Routes>
