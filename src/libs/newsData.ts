@@ -77,5 +77,3 @@ export const newsItems: NewsItem[] = [
   }
 ];
 
-
-export { newsItems }
