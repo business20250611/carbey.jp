@@ -22,7 +22,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     id: 'home-dealer-2026',
-    date: '2026.05.02',
+    date: '2026.05.01',
     category: 'お知らせ',
     title: 'Carbey ホームディーラー開発着手のお知らせ',
     isNew: true,
@@ -76,3 +76,6 @@ export const newsItems: NewsItem[] = [
     content: 'カーベイ株式会社を設立いたしました。'
   }
 ];
+
+
+export { newsItems }
