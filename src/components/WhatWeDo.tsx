@@ -22,14 +22,12 @@ const WhatWeDo: React.FC = () => {
      
     </div>
         <div className="text-center mb-16">
-          <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+          <p className="text-5xl lg:text-6xl font-bold text-gray-900 mb-4 tracking-widest" aria-hidden="true">
             WHAT WE DO
+          </p>
+          <h2 className="text-2xl text-gray-900 font-semibold">
+            Carbeyの事業 — 中古車自動売買システム・フランチャイズ
           </h2>
-          <p className="text-xl text-gray-600 font-light">
-          </p>
-          <p className="text-xl text-gray-900 font-semibold">
-            Carbeyの事業
-          </p>
         </div>
 
         {/* Content Layout */}

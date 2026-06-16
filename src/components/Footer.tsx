@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Phone, Mail, MapPin, Clock, Calendar, FileText } from 'lucide-react';
 
 const Footer: React.FC = () => {
@@ -15,9 +15,20 @@ const Footer: React.FC = () => {
     window.scrollTo(0, 0);
   };
 
+  const siteLinks = [
+    { path: '/', label: 'ホーム' },
+    { path: '/about', label: 'カーベイとは' },
+    { path: '/services', label: 'カーベイ（事業内容）' },
+    { path: '/eflow', label: 'E-Flow' },
+    { path: '/company', label: '会社情報' },
+    { path: '/philosophy', label: '企業理念' },
+    { path: '/news', label: 'お知らせ一覧' },
+    { path: '/contact', label: 'お問い合わせ' },
+  ];
+
   const legalLinks = [
-    {path:'/privacy-policy', label:'プライバシーポリシー'},
-     {path:'/legal-notice', label: '特商法に基づく表記'}
+    { path: '/privacy-policy', label: 'プライバシーポリシー' },
+    { path: '/legal-notice', label: '特商法に基づく表記' },
   ];
 
   return (
@@ -47,7 +58,7 @@ const Footer: React.FC = () => {
                 </div>
                 <div className="flex items-center justify-center">
                   <Phone className="h-5 w-5 mr-2 flex-shrink-0" />
-                  <span>046-210-4561</span>
+                  <a href="tel:046-210-4561" className="hover:underline">046-210-4561</a>
                 </div>
                 <div className="flex items-center justify-center">
                   <Clock className="h-5 w-5 mr-2 flex-shrink-0" />
@@ -80,27 +91,43 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
+        {/* サイトマップ */}
+        <div className="border-t border-gray-300 py-10">
+          <nav aria-label="フッターナビゲーション">
+            <p className="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">サイトマップ</p>
+            <ul className="flex flex-wrap gap-x-6 gap-y-3">
+              {siteLinks.map((link) => (
+                <li key={link.path}>
+                  <Link
+                    to={link.path}
+                    onClick={() => window.scrollTo(0, 0)}
+                    className="text-sm text-gray-700 hover:text-gray-900 hover:underline transition-colors duration-200"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+
         {/* 下段 */}
         <div className="border-t border-gray-300 py-6">
           <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center space-y-4 lg:space-y-0">
-            {/* 左側：コピーライト */}
-            <div>
-              <p className="text-sm" style={{ color: '#333333' }}>
-                © 2025 Carbey Inc. All Rights Reserved.
-              </p>
-            </div>
-
-            {/* 右側：法的情報リンク */}
+            <p className="text-sm" style={{ color: '#333333' }}>
+              © 2025 Carbey Inc. All Rights Reserved.
+            </p>
             <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
               {legalLinks.map((link) => (
-                <a
+                <Link
                   key={link.label}
-                  href={link.path}
+                  to={link.path}
+                  onClick={() => window.scrollTo(0, 0)}
                   className="hover:underline transition-all duration-200"
                   style={{ color: '#333333' }}
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </div>
           </div>

@@ -5,12 +5,12 @@ const WhyWeDo: React.FC = () => {
     <section className="py-20 lg:py-32" style={{ backgroundColor: '#eef3f9' }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+          <p className="text-5xl lg:text-6xl font-bold text-gray-900 mb-4 tracking-widest" aria-hidden="true">
             WHY WE DO
-          </h2>
-          <p className="text-xl text-gray-900 font-semibold">
-            私たちが実現したいこと
           </p>
+          <h2 className="text-2xl text-gray-900 font-semibold">
+            私たちが実現したいこと — 誰でも車屋になれる未来
+          </h2>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">

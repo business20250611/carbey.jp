@@ -47,12 +47,12 @@ const News: React.FC = () => {
     <section id="news" className="py-20 lg:py-32 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+          <p className="text-5xl lg:text-6xl font-bold text-gray-900 mb-4 tracking-widest" aria-hidden="true">
             NEWS
-          </h2>
-          <p className="text-xl text-gray-600 font-light">
-            お知らせ
           </p>
+          <h2 className="text-2xl text-gray-600 font-semibold">
+            カーベイ株式会社 お知らせ
+          </h2>
         </div>
 
         <div className="max-w-4xl mx-auto">

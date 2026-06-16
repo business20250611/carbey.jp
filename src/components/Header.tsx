@@ -12,10 +12,7 @@ const Header: React.FC = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -26,7 +23,6 @@ const Header: React.FC = () => {
         setIsServicesDropdownOpen(false);
       }
     };
-
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
@@ -42,24 +38,6 @@ const Header: React.FC = () => {
     { name: 'E-Flow', path: '/eflow' },
   ];
 
-  const handleNavigation = (path: string) => {
-    if (path.startsWith('/#')) {
-      // ホームページ内のセクションへの遷移
-      const sectionId = path.substring(2);
-      navigate('/');
-      setTimeout(() => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
-    } else {
-      navigate(path);
-      window.scrollTo(0, 0);
-    }
-    setIsMenuOpen(false);
-  };
-
   const handleContactNavigation = (type: 'contact' | 'document') => {
     if (type === 'document') {
       navigate('/document-select');
@@ -70,37 +48,43 @@ const Header: React.FC = () => {
     setIsMenuOpen(false);
   };
 
+  const activeClass = (path: string) =>
+    location.pathname === path ? 'border-b-2 border-white pb-1' : '';
+
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'shadow-lg' : ''
-      }`} style={{ backgroundColor: '#1F2F4D' }}>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'shadow-lg' : ''}`}
+      style={{ backgroundColor: '#1F2F4D' }}
+    >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex items-center">
-            <button
-              onClick={() => handleNavigation('/')}
+            <Link
+              to="/"
               className="text-2xl font-bold text-white hover:text-gray-200 transition-colors duration-200 flex items-center space-x-2"
+              onClick={() => { setIsMenuOpen(false); window.scrollTo(0, 0); }}
             >
-              <Car className="h-8 w-8" />
-              {/* <img src='/logo.png' alt='Carbey Logo' className='h-10 w-auto' /> */}
+              <Car className="h-8 w-8" aria-hidden="true" />
               <span>Carbey</span>
-            </button>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
-            <button
-              onClick={() => handleNavigation(navItems[0].path)}
-              className={`text-white hover:text-gray-200 transition-colors duration-200 font-medium ${location.pathname === navItems[0].path ? 'border-b-2 border-white pb-1' : ''
-                }`}
+          <nav className="hidden lg:flex items-center space-x-8" aria-label="メインナビゲーション">
+            <Link
+              to="/about"
+              className={`text-white hover:text-gray-200 transition-colors duration-200 font-medium ${activeClass('/about')}`}
             >
-              {navItems[0].name}
-            </button>
+              カーベイとは
+            </Link>
 
             {/* Services Dropdown */}
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setIsServicesDropdownOpen(!isServicesDropdownOpen)}
+                aria-expanded={isServicesDropdownOpen}
+                aria-haspopup="true"
                 className={`text-white hover:text-gray-200 transition-colors duration-200 font-medium flex items-center gap-1 ${
                   location.pathname === '/services' || location.pathname === '/eflow'
                     ? 'border-b-2 border-white pb-1'
@@ -115,19 +99,17 @@ const Header: React.FC = () => {
                 <div className="absolute top-full mt-2 bg-white rounded-lg shadow-xl py-2 min-w-[160px] z-50">
                   {servicesItems.map((item, index) => (
                     <React.Fragment key={item.name}>
-                      <button
-                        onClick={() => {
-                          handleNavigation(item.path);
-                          setIsServicesDropdownOpen(false);
-                        }}
-                        className={`w-full text-left px-6 py-3 text-gray-800 hover:bg-blue-50 transition-colors duration-200 font-medium ${
+                      <Link
+                        to={item.path}
+                        onClick={() => { setIsServicesDropdownOpen(false); window.scrollTo(0, 0); }}
+                        className={`block px-6 py-3 text-gray-800 hover:bg-blue-50 transition-colors duration-200 font-medium ${
                           location.pathname === item.path ? 'bg-blue-100 text-blue-600' : ''
                         }`}
                       >
                         {item.name}
-                      </button>
+                      </Link>
                       {index < servicesItems.length - 1 && (
-                        <div className="border-t border-gray-200 mx-2"></div>
+                        <div className="border-t border-gray-200 mx-2" />
                       )}
                     </React.Fragment>
                   ))}
@@ -136,21 +118,21 @@ const Header: React.FC = () => {
             </div>
 
             {navItems.slice(1).map((item) => (
-              <button
+              <Link
                 key={item.name}
-                onClick={() => handleNavigation(item.path)}
-                className={`text-white hover:text-gray-200 transition-colors duration-200 font-medium ${location.pathname === item.path ? 'border-b-2 border-white pb-1' : ''
-                  }`}
+                to={item.path}
+                onClick={() => window.scrollTo(0, 0)}
+                className={`text-white hover:text-gray-200 transition-colors duration-200 font-medium ${activeClass(item.path)}`}
               >
                 {item.name}
-              </button>
+              </Link>
             ))}
 
             <button
               onClick={() => handleContactNavigation('contact')}
-              className="bg-white text-[#1F2F4D] px-8 py-4 rounded-lg font-semibold hover:bg-white transition-all duration-200 transform hover:scale-105 shadow-lg text-lg"
+              className="bg-white text-[#1F2F4D] px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-200 transform hover:scale-105 shadow-lg text-lg"
             >
-            お問い合わせ
+              お問い合わせ
             </button>
             <button
               onClick={() => handleContactNavigation('document')}
@@ -164,6 +146,7 @@ const Header: React.FC = () => {
           <button
             className="lg:hidden p-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? 'メニューを閉じる' : 'メニューを開く'}
           >
             {isMenuOpen ? (
               <X className="h-6 w-6 text-white" />
@@ -176,16 +159,18 @@ const Header: React.FC = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="lg:hidden border-t border-gray-600 py-4">
-            <nav className="flex flex-col space-y-4">
+            <nav className="flex flex-col space-y-4" aria-label="モバイルナビゲーション">
               {navItems.map((item) => (
-                <button
+                <Link
                   key={item.name}
-                  onClick={() => handleNavigation(item.path)}
-                  className={`text-white hover:text-gray-200 transition-colors duration-200 font-medium px-2 py-1 text-left ${location.pathname === item.path ? 'border-l-2 border-white pl-4' : ''
-                    }`}
+                  to={item.path}
+                  onClick={() => { setIsMenuOpen(false); window.scrollTo(0, 0); }}
+                  className={`text-white hover:text-gray-200 transition-colors duration-200 font-medium px-2 py-1 ${
+                    location.pathname === item.path ? 'border-l-2 border-white pl-4' : ''
+                  }`}
                 >
                   {item.name}
-                </button>
+                </Link>
               ))}
 
               {/* Mobile Services Dropdown */}
@@ -200,15 +185,16 @@ const Header: React.FC = () => {
                 {isMobileServicesOpen && (
                   <div className="ml-4 mt-2 space-y-2">
                     {servicesItems.map((item) => (
-                      <button
+                      <Link
                         key={item.name}
-                        onClick={() => handleNavigation(item.path)}
-                        className={`text-white hover:text-gray-200 transition-colors duration-200 font-medium px-2 py-1 text-left block w-full ${
+                        to={item.path}
+                        onClick={() => { setIsMenuOpen(false); window.scrollTo(0, 0); }}
+                        className={`block text-white hover:text-gray-200 transition-colors duration-200 font-medium px-2 py-1 ${
                           location.pathname === item.path ? 'border-l-2 border-white pl-4' : ''
                         }`}
                       >
                         {item.name}
-                      </button>
+                      </Link>
                     ))}
                   </div>
                 )}
