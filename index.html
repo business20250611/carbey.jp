@@ -114,11 +114,7 @@
 </head>
 
 <body>
-  <div id="root">
-    <!--
-      Static SEO content — visible to crawlers that do not execute JavaScript.
-      React replaces this when it mounts. Do not remove.
-    -->
+  <div id="root"><div style="display:none" aria-hidden="true">
     <header>
       <nav aria-label="Main navigation">
         <a href="/">Home (ホーム)</a>
@@ -262,7 +258,7 @@
         <a href="/legal-notice">特商法表記 / Legal Notice</a>
       </nav>
     </footer>
-  </div>
+  </div></div>
 
   <script type="module" src="/src/main.tsx"></script>
 </body>
