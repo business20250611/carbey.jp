@@ -36,18 +36,9 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* 上段 */}
         <div className="py-12 lg:py-16">
-          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
-            {/* 左：画像 */}
-            <div className="w-full lg:w-5/12 flex-shrink-0">
-              <img
-                src="/miura_1200.png"
-                alt="アクセルジャパン アンバサダー 三浦翔平"
-                className="w-full rounded-xl shadow-lg object-cover"
-              />
-            </div>
-
-            {/* 右：会社情報とボタン */}
-            <div className="w-full lg:w-7/12 flex flex-col items-center space-y-8 text-center lg:pl-8">
+          <div className="flex flex-col items-center">
+            {/* 会社情報とボタン */}
+            <div className="w-full flex flex-col items-center space-y-8 text-center">
               <h3 className="text-3xl font-bold w-full text-center" style={{ color: '#333333' }}>
                 カーベイ株式会社
               </h3>
