@@ -82,26 +82,6 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* サイトマップ */}
-        <div className="border-t border-gray-300 py-10">
-          <nav aria-label="フッターナビゲーション">
-            <p className="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">サイトマップ</p>
-            <ul className="flex flex-wrap gap-x-6 gap-y-3">
-              {siteLinks.map((link) => (
-                <li key={link.path}>
-                  <Link
-                    to={link.path}
-                    onClick={() => window.scrollTo(0, 0)}
-                    className="text-sm text-gray-700 hover:text-gray-900 hover:underline transition-colors duration-200"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
-
         {/* 下段 */}
         <div className="border-t border-gray-300 py-6">
           <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center space-y-4 lg:space-y-0">
